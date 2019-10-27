@@ -1,5 +1,7 @@
 <?php
 require_once('issue_001.php');
+require_once('issue001/ListPoints.php');
+use issue001\ListPoints;
 
 ?>
 <!DOCTYPE html>
@@ -15,11 +17,15 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        echo '123';
-        $issue001 = new issue_001();
-        echo $issue001->echoData();
+        echo 'Function programming:';
         echo '<br/>';
         echo getMaxDistance();
+        echo '<br/>';
+        echo 'Object Oriented programming:';
+        echo '<br/>';
+        $listPoint = new ListPoints();
+        echo $listPoint->getMaxDistance();
+        echo '<br/>';
         ?>
     </body>
 </html>
