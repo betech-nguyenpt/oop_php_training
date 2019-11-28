@@ -51,22 +51,24 @@ class Point {
 
 //Description of shape
 abstract class Shape {
-    
+
     /**
      * Hexadecimals colors
      * @var Array
      */
     public $arrColor = [
-        'white'=>'#FFFFFF',
+        'white' => '#FFFFFF',
         'red' => '#FF0000',
         'black' => '#000000',
         'gray' => '#808080',
         'silver' => '#C0C0C0'
-    ]; 
-       
+    ];
+
     abstract public function getPerimeter();
 
     abstract public function getArea();
+
+    abstract public function print();
 
 //    abstract public function validate($points);
     abstract public function draw($color = 'white');
@@ -80,7 +82,7 @@ class Polygon extends Shape {
      * @var Point[] 
      */
     public $listPoints;
-    
+
     /**
      * Set value for polygon's points
      * @param Point[] $points Input parameter
@@ -89,7 +91,6 @@ class Polygon extends Shape {
 //        if ($this->validate($points)) {
         $this->listPoints = $points;
 //        }
-        
     }
 
     /**
@@ -111,28 +112,28 @@ class Polygon extends Shape {
     public function getArea() {
         return 0;
     }
-    
+
     /**
      * Get list point as array
      * @return Array
      */
     public function getListPointAsArray() {
         $arrVal = [];
-        for($i = 0; $i < count($this->listPoints); $i++){
+        for ($i = 0; $i < count($this->listPoints); $i++) {
             $arrVal[] = $this->listPoints[$i]->x;
             $arrVal[] = $this->listPoints[$i]->y;
         }
         return $arrVal;
     }
-    
+
     /**
      * Draw the polygon
      */
-    public function draw($color = 'white') {      
+    public function draw($color = 'white') {
         return 'var poly = ' . json_encode($this->getListPointAsArray()) . ';
                 var canvas2 = document.getElementById("myShape")
                 var ctx = canvas2.getContext("2d");
-                ctx.fillStyle = '.  ($this->arrColor[$color]) . '
+                ctx.fillStyle = ' . json_encode(($this->arrColor[$color])) . '
                 ctx.StrokeStyle = "#FF0000"
 
                 ctx.beginPath();
@@ -144,8 +145,15 @@ class Polygon extends Shape {
                 ctx.lineTo(poly[poly.length - 2], poly[poly.length - 1]);
                 ctx.stroke();
                 ctx.fill();
-                ctx.closePath();';
+                ctx.closePath(); ';
     }
+
+    public function print() {
+        foreach ($this->listPoints as $value) {
+            $value->print();
+        }
+    }
+
 }
 
 //Description of triangle
@@ -172,6 +180,7 @@ class Triangle extends Polygon {
         $retval = sqrt($p * ($p - $this->lengthAB) * ($p - $this->lengthBC) * ($p - $this->lengthAC));
         return $retVal;
     }
+
 }
 
 //Description of rectangle
@@ -194,6 +203,7 @@ class Rectangle extends Polygon {
         $lengthBC = $this->listPoints[1]->distance($this->listPoints[2]);
         return $retval = $this->lengthAB * $this->lengthBC;
     }
+
 }
 
 // Description of square
@@ -218,6 +228,7 @@ class Rhombus extends Polygon {
         $retval = 0;
         return $retval = ($this->lengthAC * $this->lengthBD) / 2;
     }
+
 }
 
 // Description of circle
@@ -264,7 +275,7 @@ class Circle extends Shape {
     }
 
     public function draw($color = 'white') {
-        
+
         return 'var canvas1 = document.getElementById("myShape");
                 var ctx = canvas1.getContext("2d");
                 ctx.fillStyle = ' . json_encode($this->arrColor[$color]) . '
@@ -277,6 +288,84 @@ class Circle extends Shape {
                 ctx.stroke();
                 ctx.fill();
                 ctx.closePath();';
+    }
+
+    /**
+     * Print put the circle's properties
+     * Ex: (300 , 150)r = 40 
+     */
+    public function print() {
+        echo $this->centerPoint->print() . ' r = ' . $this->radius . '<br/>';
+    }
+
+}
+
+class ListCircle extends Circle {
+
+    /**
+     * List of circle
+     * @var Circle[]
+     */
+    public $circles = [];
+
+    /**
+     * Set list of circle
+     * @param Point[] $point Input list of center points
+     * @param Array $radius Input list radius
+     */
+    public function __construct($point, $radius) {
+        for ($ii = 0; $ii < count($point); $ii++) {
+            $this->circles[] = new Circle($point[$ii], $radius[$ii]);
+        }
+    }
+
+    /**
+     * Print out the list of circles
+     * Ex: (300, 150) r = 40
+     *     (200, 100) r = 100
+     *     (100, 200) r = 50
+     */
+    public function print() {
+        foreach ($this->circles as $value) {
+            $value->centerPoint->print();
+        }
+    }
+
+    /**
+     * Draw all the circles in list
+     * @param String $color Input color
+     * @return String
+     */
+    public function draw($color = 'white') {
+        $retVal = '';
+        foreach ($this->circles as $value) {
+            $retVal .= $value->draw($color);
+        }
+        return $retVal;
+    }
+
+    /**
+     * Get the max area circle
+     * @return int
+     */
+    public function getMaxAreaCircle() {
+        $max = 0;
+        for ($ii = 0; $ii < count($this->circles); $ii++) {
+            if ($this->circles[$max]->getArea() < $this->circles[$ii]->getArea()) {
+                $max = $ii;
+            }
+        }
+        return $max;
+    }
+
+    /**
+     * Color the max area circle
+     * @param String $colorMax Input color
+     * @return String
+     */
+    public function colorMaxAreaCircle($colorMax = 'red') {
+        $circleMax = $this->getMaxAreaCircle();
+        return $this->circles[$circleMax]->draw($colorMax);
     }
 
 }
@@ -292,17 +381,22 @@ $p7 = new Point(880, 90);
 $p8 = new Point(880, 30);
 
 
-$circle = new Circle($p0, 50);
-
-$triangle = new Triangle($p1, $p2, $p3);
-
-$rectangle = new Rectangle($p5, $p6, $p7, $p8);
+//$circle = new Circle($p0, 50);
+//$circle->print();
+//
+//$triangle = new Triangle($p1, $p2, $p3);
+//
+//$rectangle = new Rectangle($p5, $p6, $p7, $p8);
+$circleList = new ListCircle([$p0, $p1, $p2, $p3], [20, 30, 35, 50]);
+$circleList->draw();
+$circleList->colorMaxAreaCircle('red');
 ?>
-<canvas id="myShape" width="1000" height="1000"
-            style="border:1px solid #d3d3d3;">
+
+<canvas id="myShape" width="500" height="500"
+        style="border:1px solid #d3d3d3;">
 </canvas>
 <script>
-    <?= $circle->draw('gray'); ?>
-    <?= $triangle->draw('red');?>    
-    <?= $rectangle->draw('black');?>
+<?= $circleList->draw(); ?>
+<?= $circleList->colorMaxAreaCircle('red'); ?>
+
 </script>
