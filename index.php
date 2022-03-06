@@ -25,6 +25,7 @@ and open the template in the editor.
         echo '<br/>';
         $listPoint = new ListPoints();
         echo $listPoint->getMaxDistance();
+        echo 'TanTy';
         echo '<br/>';
         ?>
     </body>
