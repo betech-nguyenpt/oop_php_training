@@ -20,6 +20,9 @@ class issue_001 {
 $arrX = array();
 $arrY = array();
 
+/**
+ * Comment of function
+ */
 function inputPoints() {
     global $arrX, $arrY;
     $arrX = [1, 3, 5, 7, 9];
