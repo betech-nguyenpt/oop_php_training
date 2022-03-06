@@ -1,4 +1,5 @@
 <?php
+//
 namespace issue001;
 
 require_once('Point.php');
