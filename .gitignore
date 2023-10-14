@@ -1,2 +1,8 @@
 /nbproject/private/
 /PhpProject1/nbproject/private/
+*.exe
+*.ilk
+*.obj
+*.pdb
+*.pdb
+*.code-workspace
