@@ -31,7 +31,7 @@ void daydiem::nhapsl(void)
     y = (float*)malloc((n + 1)*sizeof(float));
     for (i = 1; i <= n; ++i)
     {
-        printf("\nNhap toa d x,y cua diem thu %d: ",i);
+        printf("\nNhap toa do x,y cua diem thu %d: ",i);
         scanf("%f%f", &x[i], &y[i]);
     }
 }
