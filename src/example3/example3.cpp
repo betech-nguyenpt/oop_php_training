@@ -28,7 +28,7 @@ int main()
     imax = 1;
     jmax = 2;
     for (i=1; i<=n-1; ++i)
-        for(j=i+1;j<=n;++j)
+        for (j=i+1;j<=n;++j)
         {
             d = do_dai(i,j);
             if (d > dmax)
