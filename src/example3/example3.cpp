@@ -10,6 +10,8 @@ float do_dai(int i, int j)
 }
 void nhapsl(int n)
 {
+    // ++i tính luôn trên giá trị ban đầu
+    // i++ tạo ra bản copy của giá trị ban đầu
     int i;
     for (i=1;i<=n;++i)
     {
