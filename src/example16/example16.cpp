@@ -31,11 +31,11 @@ class DAY_HINH_CN
 {
     private:
     int n; // So hinh chu nhat
-    HINH_CN*h;
+    HINH_CN *h; // Con trỏ tới dãy đối tượng của lớp HINH_CN
     public:
     void nhapsl();
-    HINH_CN hinh_dt_max();
-    HINH_CN *hinh_cv_max();
+    HINH_CN hinh_dt_max(); // Trả về HCN có diện tích max
+    HINH_CN *hinh_cv_max(); //trả về con trỏ tới HCN có chu vi max
 };
 void DAY_HINH_CN::nhapsl()
 {
