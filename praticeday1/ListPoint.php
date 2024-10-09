@@ -8,18 +8,18 @@ use Praticeday1\Point;
 class ListPoint {
     public $points = [];
 
-    // Hàm tạo
+    // Constructor
     public function __construct() {
         $arrX = [1, 3, 5, 7, 9];
         $arrY = [2, 4, 6, 8, 10];
 
-        // Tạo đối tượng Point và lưu vào mảng $points
+        // Create a Point object and store it in the $points array
         for ($ii = 0; $ii < count($arrX); $ii++) {
             $this->points[$ii] = new Point($arrX[$ii], $arrY[$ii]);
         }
     }
 
-    // Tính khoảng cách giữa hai điểm
+    // Calculate the distance between two points
     public function distance($i, $j) {
         return sqrt(pow($this->points[$i]->x - $this->points[$j]->x, 2)
             + pow($this->points[$i]->y - $this->points[$j]->y, 2));
@@ -31,7 +31,7 @@ class ListPoint {
         $iMax = 0;
         $jMax = 1;
 
-        // So sánh khoảng cách giữa tất cả các cặp điểm
+        // Compare the distance between all pairs of points
         for ($ii = 0; $ii < count($this->points) - 1; $ii++) {
             for ($jj = $ii + 1; $jj < count($this->points); $jj++) {
                 $temp = $this->distance($ii, $jj);
@@ -53,6 +53,6 @@ class ListPoint {
 $listPoint = new ListPoint();
 echo $listPoint->getMaxDistance();
 
-//Kết quả : Longest line with length: 11.313708498985<br>Through points: (1, 2) - (9, 10)
+//Result : Longest line with length: 11.313708498985<br>Through points: (1, 2) - (9, 10)
 
 ?>
