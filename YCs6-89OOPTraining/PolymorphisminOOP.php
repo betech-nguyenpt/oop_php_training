@@ -2,18 +2,18 @@
 /*
 6. Tương ứng bội và phương thức ảo (Tính đa hình - Polymorphism in OOP)
 
-Phương thức tĩnh
-Sự hạn chế của phương thức tĩnh
-Phương thức ảo và tương ứng bội
-Lớp cơ sở trừu tượng (Tính trừu tượng - Abstraction in OOP)
-Sử dụng tương ứng bội và phương thức ảo
-Xử lý các thuật toán khác nhau
+static method
+limitation of static methods
+virtual methods and multiple correspondences
+Abtraction Class (Tính trừu tượng - Abstraction in OOP)
+Use multiple correspondence and virtual methods
+handle different algorithms
 */ 
 
-// Phương thức tĩnh
+// static method
 
     class Math {
-        // Định nghĩa phương thức tĩnh
+        // define
         public static function Tong($a, $b) {
             return $a + $b;
         }
@@ -23,39 +23,37 @@ Xử lý các thuật toán khác nhau
         }
     }
 
-    // Gọi phương thức tĩnh mà không cần tạo đối tượng
+    // 
     $sum = Math::Tong(5, 10);
     $product = Math::Tich(5, 10);
 
-    echo "Tổng: " . $sum . "\n";        // In ra: Tổng: 15
-    echo "Tích: " . $product . "\n";    // In ra: Tích: 50
+    echo "SUM: " . $sum . "\n";        // Result: SUM: 15
+    echo "TICH: " . $product . "\n";    // Result: TICH: 50
 
-// Sự hạn chế của phương thức tĩnh
-
-// Phương thức ảo và tương ứng bội
+// and multiple correspondences
 
         class Person {
-            // Phương thức ảo
+            // virtual methods 
             public function job() {
                 echo "Parttime\n";
             }
         }
 
         class Doctor extends Person {
-            // Ghi đè phương thức ảo
+            // overwrite
             public function job() {
                 echo "fulltime\n";
             }
         }
 
         class Engineer extends Person {
-            // Ghi đè phương thức ảo
+            // overwrite
             public function job() {
                 echo "ABCD\n";
             }
         }
 
-        // Sử dụng
+        // usedused
         $person = new Person();
         $person->job(); // Output: parttime
 
@@ -66,8 +64,8 @@ Xử lý các thuật toán khác nhau
         $engineer->job(); // Output: ABCD
 
 
-// Lớp cơ sở trừu tượng (Tính trừu tượng - Abstraction in OOP)
-        // Định nghĩa lớp cơ sở trừu tượng
+// Abtraction Class (Tính trừu tượng - Abstraction in OOP)
+        // Define abstract class
         abstract class Employee {
             protected $name;
             protected $salary;
@@ -77,7 +75,7 @@ Xử lý các thuật toán khác nhau
                 $this->salary = $salary;
             }
 
-            // Phương thức trừu tượng
+            // abstract method
             abstract public function calculateBonus();
 
             public function getDetails() {
@@ -85,20 +83,22 @@ Xử lý các thuật toán khác nhau
             }
         }
 
-        // Lớp con: Manager
+        // Class: Manager
         class Manager extends Employee {
             public function calculateBonus() {
-                return $this->salary * 0.10; // Tiền thưởng: 10% lương
+                return $this->salary * 0.10; // Bonus: 10% salary
             }
         }
 
-        // Sử dụng các lớp
+        // 
         $manager = new Manager("NguyenVanA", 50000);
         echo $manager->getDetails() . "\n"; // Output: Name: NguyenVanA, Salary: 50000
         echo "Bonus: " . $manager->calculateBonus() . "\n"; // Output: Bonus: 5000
-// Sử dụng tương ứng bội và phương thức ảo
 
-        // Định nghĩa lớp cơ sở trừu tượng
+
+// Use multiple correspondence and virtual methods
+
+        // DefineDefine
         abstract class Employee {
             protected $name;
             protected $baseSalary;
@@ -116,14 +116,14 @@ Xử lý các thuật toán khác nhau
             }
         }
 
-        // Lớp con: FullTimeEmployee
+        // Class: FullTimeEmployee
         class FullTimeEmployee extends Employee {
             public function calculateSalary() {
-                return $this->baseSalary; // Lương cố định
+                return $this->baseSalary; // hardsalary
             }
         }
 
-        // Lớp con: PartTimeEmployee
+        // class: PartTimeEmployee
         class PartTimeEmployee extends Employee {
             private $hoursWorked;
             private $hourlyRate;
@@ -135,26 +135,24 @@ Xử lý các thuật toán khác nhau
             }
 
             public function calculateSalary() {
-                return $this->hoursWorked * $this->hourlyRate; // Tính lương theo giờ
+                return $this->hoursWorked * $this->hourlyRate; // Calculate hourly salary
             }
         }
 
-        // Sử dụng các lớp
+        // used class
         $employees = [];
-        $employees[] = new FullTimeEmployee("Nguyen Van A", 50000); // Lương cố định
-        $employees[] = new PartTimeEmployee("NVB", 0, 20, 20000); // Lương theo giờ
+        $employees[] = new FullTimeEmployee("Nguyen Van A", 50000); // hardsalary
+        $employees[] = new PartTimeEmployee("NVB", 0, 20, 20000); // hourly salary
 
-        // Hiển thị thông tin và tính lương cho từng nhân viên
+        // 
         foreach ($employees as $employee) 
-            echo $employee->getDetails() . "\n"; // Hiển thị thông tin nhân viên
-            echo "Calculated Salary: " . $employee->calculateSalary() . " VNĐ\n"; // Hiển thị lương
+            echo $employee->getDetails() . "\n"; // Display employee information
+            echo "Calculated Salary: " . $employee->calculateSalary() . " VNĐ\n"; //show salary
         }
-        //Kết quả :
+        //Result :
         // Employee: Nguyen Van A, Salary: 50000 VNĐ
         // Calculated Salary: 50000 VNĐ
         // Employee: Bob, Salary: 0 VNĐ
         // Calculated Salary: 400000 VNĐ
-
-// Xử lý các thuật toán khác nhau
 
 ?>
