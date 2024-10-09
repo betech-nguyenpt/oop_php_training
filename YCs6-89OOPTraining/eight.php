@@ -1,14 +1,14 @@
 <?php
 
-// 8. Cấu trúc dữ liệu và Giải thuật
+// 8. Data Structures & Algorithms
 // betech-nguyenpt edited this page on Oct 27, 2019 · 1 revision
-// Các lớp ngăn xếp và hàng đợi
-// Danh sách liên kết
-// Giải thuật sắp xế
+// Stack and Queue
+// Link List
+// sorting algorithm
 
 
 
-//Các lớp ngăn xếp và hàng đợi
+//Stack and Queue
 
         class Person {
             private $name;
@@ -44,17 +44,17 @@
             }
         }
 
-        // Ví dụ sử dụng
+        // ExampleExample
         $stack = new Stack();
         $stack->push(new Person("NVA", 30));
         $stack->push(new Person("NVB", 25));
         $stack->push(new Person("NVC", 40));
 
-        echo "Top person: " . $stack->peek()->displayInfo() . "\n"; // Output thông tin người trên cùng: Top person: Name: NVC, Age: 40
-        echo "Popped person: " . $stack->pop()->displayInfo() . "\n"; // Output thông tin người bị xóa: Popped person: Name: NVC, Age: 40
+        echo "Top person: " . $stack->peek()->displayInfo() . "\n"; // output the above person's information: Top person: Name: NVC, Age: 40
+        echo "Popped person: " . $stack->pop()->displayInfo() . "\n"; // output deleted person information: Popped person: Name: NVC, Age: 40
 
-// Danh sách liên kết
-        // Định nghĩa lớp Con Người
+// Link list
+        
         class Person {
             private $name;
             private $age;
@@ -69,7 +69,6 @@
             }
         }
 
-        // Định nghĩa lớp Node cho Danh Sách Liên Kết
         class Node {
             public $data;
             public $next;
@@ -80,7 +79,6 @@
             }
         }
 
-        // Định nghĩa lớp Danh Sách Liên Kết
         class LinkedList {
             private $head = null;
 
@@ -106,22 +104,22 @@
             }
         }
 
-        // Ví dụ sử dụng
+        // example
         $list = new LinkedList();
         $list->append(new Person("NguyenVanA", 30));
         $list->append(new Person("NguyenVanB", 25));
         $list->append(new Person("NguyenVanC", 40));
 
         $list->display(); 
-        // Kết quả
+        // Result
         // ame: NguyenVanA, Age: 30
         // Name: NguyenVanB, Age: 25
         // Name: NguyenVanC, Age: 40
 
 
-// Giải thuật sắp xếp
+// sorting algorithm
 
-        //Giải thuật sắp xếp nhanh
+        //Quick sorting algorithm
         function quick_sort($my_array)  
         {  
             $loe = $gt = array();  
@@ -145,12 +143,12 @@
         }  
         
         $my_array = array(3, 0, 2, 5, -1, 4, 1);  
-        echo 'Mảng ban đầu: '.implode(',',$my_array).'<br>';  
+        echo 'Before: '.implode(',',$my_array).'<br>';  
         $my_array = quick_sort($my_array);  
-        echo 'Mảng sau khi được sắp xếp: '.implode(',',$my_array);
-        //Kết quả :Mảng ban đầu: 3,0,2,5,-1,4,1<br>Mảng sau khi được sắp xếp: -1,0,1,2,3,4,5
+        echo 'After: '.implode(',',$my_array);
+        // :Before: 3,0,2,5,-1,4,1<br> After: -1,0,1,2,3,4,5
 
-//Giải thuật sắp xếp chọn
+//Selection-sortsort
         
         function selection_sort($data)  
         {  
@@ -173,10 +171,10 @@
             return $data1;  
         }  
         $my_array = array(3, 0, 2, 5, -1, 4, 1);  
-        echo "Mảng ban đầu: <br>";  
+        echo "Before: <br>";  
         echo implode(', ',$my_array );  
-        echo "<br>Mảng đã qua sắp xếp:<br>";  
+        echo "<br>After:<br>";  
         echo implode(', ',selection_sort($my_array)). PHP_EOL;
-        //Kết quả :Mảng ban đầu: <br>3, 0, 2, 5, -1, 4, 1<br>Mảng đã qua sắp xếp:<br>-1, 0, 1, 2, 3, 4, 5
+        //Kết quả :Before: <br>3, 0, 2, 5, -1, 4, 1<br>After:<br>-1, 0, 1, 2, 3, 4, 5
 
 ?>
