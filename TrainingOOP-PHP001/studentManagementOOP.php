@@ -5,14 +5,14 @@ class Student {
     public $name; // 
     public $score; //
 
-    // SinhVien class constructor
+    // Student class constructor
     public function  __construct($name, $score) { 
         $this->name = $name;   
         $this->score = $score; 
     }
 }
 
-// Class QuanLySinhVien
+// Class studentManagement
 class studentManagement {
     private $listStudent = array(); // storage array
 
