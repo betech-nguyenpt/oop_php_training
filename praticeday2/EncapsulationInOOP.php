@@ -1,16 +1,16 @@
 <?php
 /*
 3. Class (Tính đóng gói Encapsulation in OOP)
-Định nghĩa lớp
-Biến, mảng đối tượng
-Con trỏ đối tượng
-Đối của phương thức, con trỏ this
-Nói thêm về kiểu phương thức và kiểu đối của phương thức
-Phạm vi truy xuất
-Các phương thức toán tử
+Class definition
+Variables, arrays of objects
+Object pointer
+The method's argument, this pointer
+Tell more about method types and method argument types
+Retrieval range
+Operator methods
 */ 
 
-//Định nghĩa lớp 
+//Class definition
 
     class Book {
         public $title;
@@ -26,11 +26,11 @@ Các phương thức toán tử
         }
     }
 
-    // Tạo đối tượng từ lớp Book
+    // Create object from Book class
     $myBook = new Book("1984", "George Orwell");
-    echo $myBook->getDescription(); // Kết quả: The book 1984 is written by George Orwell.
+    echo $myBook->getDescription(); // Result: The book 1984 is written by George Orwell.
 
-//Biến, mảng đối tượng
+//Variables, arrays of objects
     class Student {
         public $name;
         public $level;
@@ -44,7 +44,7 @@ Các phương thức toán tử
             return "Student: $this->name, level: $this->level";
         }
     }
-    // Tạo mảng đối tượng
+    // Create array of objects
     $students = [
         new Student("Nguyen Van A", "A"),
         new Student("Nguyen Van B", "B"),
@@ -54,12 +54,12 @@ Các phương thức toán tử
     foreach ($students as $student) {
         echo $student->getInfo() . "\n";
     }
-    /*Kết quả : Student: Nguyen Van A, level: A
+    /*Result : Student: Nguyen Van A, level: A
                 Student: Nguyen Van B, level: B
                 Student: Nguyen Van C, level: C*/
 
 
-//Con trỏ đối tượng
+//Object pointer
     class Author {
         public $name;
 
@@ -71,18 +71,18 @@ Các phương thức toán tử
             return $this->name;
         }
     }
-    // Tạo đối tượng
+    // create object
     $author1 = new Author("Nguyen Van A");
-    // Con trỏ đối tượng
+    // Object pointer
     $authorA = $author1;
-    echo $authorA->getName(); // Kết quả: Nguyen Van A
+    echo $authorA->getName(); // Result: Nguyen Van A
 
 
-//Đối của phương thức, con trỏ this
+//The method's argument, this pointer
 
-//Nói thêm về kiểu phương thức và kiểu đối của phương thức
+//Tell more about method types and method argument types
 
-//Phạm vi truy xuất
+//Retrieval range
     class Person {
         public $name = "NguyenVanA";
         protected $age = 20;
@@ -96,9 +96,9 @@ Các phương thức toán tử
     }
 
     $person = new Person();
-    $person->showInfo(); // Kết quả: Name: NguyenVanA, Age: 20, SSN: 22-12-2022
+    $person->showInfo(); // Result: Name: NguyenVanA, Age: 20, SSN: 22-12-2022
 
-//Các phương thức toán tử
+//Operator methods
 
 
 ?>
