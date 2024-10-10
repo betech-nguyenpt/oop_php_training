@@ -13,21 +13,21 @@ handle different algorithms
 
     class Math {
         // define
-        public static function Tong($a, $b) {
+        public static function Sum($a, $b) {
             return $a + $b;
         }
 
-        public static function Tich($a, $b) {
+        public static function Product($a, $b) {
             return $a * $b;
         }
     }
 
     // 
-    $sum = Math::Tong(5, 10);
-    $product = Math::Tich(5, 10);
+    $sum = Math::Sum(5, 10);
+    $product = Math::Product(5, 10);
 
     echo "SUM: " . $sum . "\n";        // Result: SUM: 15
-    echo "TICH: " . $product . "\n";    // Result: TICH: 50
+    echo "PRODUCT: " . $product . "\n";    // Result: PRODUCT: 50
 
 // and multiple correspondences
 
@@ -63,7 +63,7 @@ handle different algorithms
         $engineer->job(); // Output: ABCD
 
 
-// Abtraction Class (Tính trừu tượng - Abstraction in OOP)
+// Abtraction Class ( Abstraction in OOP)
         // Define abstract class
         abstract class Employee {
             protected $name;

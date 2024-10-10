@@ -1,105 +1,105 @@
 <?php
 namespace TrainingOOP1;
 // 
-class SinhVien {
-    public $ten; // 
-    public $diem; //
+class Student {
+    public $name; // 
+    public $score; //
 
     // SinhVien class constructor
-    public function  __construct($ten, $diem) { 
-        $this->ten = $ten;   
-        $this->diem = $diem; 
+    public function  __construct($name, $score) { 
+        $this->name = $name;   
+        $this->score = $score; 
     }
 }
 
 // Class QuanLySinhVien
-class QuanLySinhVien {
-    private $dsSinhVien = array(); // storage array
+class studentManagement {
+    private $listStudent = array(); // storage array
 
     // Add new students to the list
-    public function themSinhVien($ten, $diem) {
-        $sinhVien = new SinhVien($ten, $diem); // 
-        $this->dsSinhVien[] = $sinhVien;       // Add objects to the list
+    public function addStudent($name, $score) {
+        $student = new Student($name, $score); // 
+        $this->listStudent[] = $student;       // Add objects to the list
     }
 
     // 
-    public function hienThiDanhSach() {
-        echo "Danh sách sinh viên:<br>"; 
-        foreach ($this->dsSinhVien as $sinhVien) {
-            echo "Tên: " . $sinhVien->ten . ", Điểm: " . $sinhVien->diem . "<br>"; // Display information for each student
+    public function showList() {
+        echo "List Student:<br>"; 
+        foreach ($this->listStudent as $student) {
+            echo "name: " . $student->name . ", score: " . $student->score . "<br>"; // Display information for each student
         }
     }
 
     // Calculate the average score of all students
-    public function tinhDiemTrungBinh() {
-        $tongDiem = 0; // Biến lưu tổng điểm
-        $soLuongSinhVien = count($this->dsSinhVien); // Number of students
-
-        foreach ($this->dsSinhVien as $sinhVien) {
-            $tongDiem += $sinhVien->diem; // Add each student's score to the total score
+    public function Average () {
+        $totalScore = 0; // Variable to hold total score
+        $numberOfStudents = count($this->listStudent); // Number of students
+    
+        foreach ($this->listStudent as $student) {
+            $totalScore += $student->score; // Add each student's score to the total score
         }
-
-        if ($soLuongSinhVien > 0) {
-            $diemTrungBinh = $tongDiem / $soLuongSinhVien; //Calculate average score
-            echo "Điểm trung bình của các sinh viên là: $diemTrungBinh<br>"; 
+    
+        if ($numberOfStudents > 0) {
+            $averageScore = $totalScore / $numberOfStudents; // Calculate average score
+            echo "The average score of the students is: $averageScore<br>";
         } else {
-            echo "Không có sinh viên nào trong danh sách.<br>"; 
+            echo "There are no students in the list.<br>";
         }
     }
 
     // Find the student with the highest score
-    public function timSinhVienDiemCaoNhat() {
-        $diemCaoNhat = -1; // Initialize the highest score lower than the possible score
-        $tenSVDiemCaoNhat = ""; //
-
-        foreach ($this->dsSinhVien as $sinhVien) {
-            if ($sinhVien->diem > $diemCaoNhat) {
-                $diemCaoNhat = $sinhVien->diem; // Update highest score
-                $tenSVDiemCaoNhat = $sinhVien->ten; // Update the name of the student with the highest score
+    public function SearchHighestScoreStudent() {
+        $highestScore = -1; // Initialize the highest score lower than the possible score
+        $topStudentName = ""; // 
+    
+        foreach ($this->listStudent as $student) {
+            if ($student->score > $highestScore) {
+                $highestScore = $student->score; // Update highest score
+                $topStudentName = $student->name; // Update the name of the student with the highest score
             }
         }
-
-        echo "Sinh viên có điểm cao nhất là: $tenSVDiemCaoNhat với điểm $diemCaoNhat<br>";
+    
+        echo "The student with the highest score is: $topStudentName with a score of $highestScore<br>";
     }
 
-    // Find the student with the lowest score
-    public function timSinhVienDiemThapNhat() {
-        $diemThapNhat = 100; // Initialize the lowest point larger than the possible point
-        $tenSVDiemThapNhat = ""; // Initialize the name of the student with the lowest score
+   // Find the student with the lowest score
+public function SearchLowestScoreStudent() {
+    $lowestScore = 100; // Initialize the lowest score higher than the possible score
+    $bottomStudentName = ""; // Initialize the name of the student with the lowest score
 
-        foreach ($this->dsSinhVien as $sinhVien) {
-            if ($sinhVien->diem < $diemThapNhat) {
-                $diemThapNhat = $sinhVien->diem; // Update lowest score
-                $tenSVDiemThapNhat = $sinhVien->ten; // Update the name of the student with the lowest score
-            }
+    foreach ($this->listStudent as $student) {
+        if ($student->score < $lowestScore) {
+            $lowestScore = $student->score; // Update lowest score
+            $bottomStudentName = $student->name; // Update the name of the student with the lowest score
         }
+    }
 
-        echo "Sinh viên có điểm thấp nhất là: $tenSVDiemThapNhat với điểm $diemThapNhat<br>"; 
+    echo "The student with the lowest score is: $bottomStudentName with a score of $lowestScore<br>";
     }
 }
 
 // 
-$quanLySinhVien = new QuanLySinhVien();
+$stManagement = new studentManagement();
 
 // Add some students to test
-$quanLySinhVien->themSinhVien("Nguyễn Văn A", 9);
-$quanLySinhVien->themSinhVien("Nguyễn Văn B", 7.5);
-$quanLySinhVien->themSinhVien("Nguyễn Văn C", 6);
-$quanLySinhVien->themSinhVien("Nguyễn Văn D", 8.5);
-$quanLySinhVien->themSinhVien("Lê Văn A", 9.5);
-$quanLySinhVien->themSinhVien("Lê Văn B", 8);
-$quanLySinhVien->themSinhVien("Lê Văn C", 6.5);
-$quanLySinhVien->themSinhVien("Lê Văn D", 9);
+$stManagement->addStudent("NguyenVanA", 9);
+$stManagement->addStudent("NguyenVanB", 7.5);
+$stManagement->addStudent("NguyenVanC", 6);
+$stManagement->addStudent("NguyenVanD", 8.5);
+$stManagement->addStudent("LeVanA", 9.5);
+$stManagement->addStudent("LeVanB", 8);
+$stManagement->addStudent("LeVanC", 6.5);
+$stManagement->addStudent("LeVanD", 9);
 
 // Display list of students
-$quanLySinhVien->hienThiDanhSach();
+$stManagement->showList();
 
 // Find the student with the highest score
-$quanLySinhVien->timSinhVienDiemCaoNhat();
+$stManagement->SearchHighestScoreStudent();
 
 //  Find the student with the lowest score
-$quanLySinhVien->timSinhVienDiemThapNhat();
+$stManagement->SearchLowestScoreStudent();
 
 //Calculate average score
-$quanLySinhVien->tinhDiemTrungBinh();
+$stManagement->Average();
 ?>

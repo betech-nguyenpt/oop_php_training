@@ -1,93 +1,92 @@
 <?php
 namespace TrainingOOP1;
 //Array to store student list
-$dsSinhVien = array();
+$listStudent = array();
 
-// function : themSV
-function themSV($ten, $diem) {
-    global $dsSinhVien;
-    $SinhVien = array("ten" => $ten, "diem" => $diem);
-    $dsSinhVien[] = $SinhVien;
+// function : addStudent
+function addStudent($name, $point) {
+    global $listStudent;
+    $Student = array("name" => $name, "point" => $point);
+    $listStudent[] = $Student;
 }
 
-// function :hien_thi_danh_sach
-function hien_thi_danh_sach() {
-    global $dsSinhVien;
-    echo "Danh sách sinh viên:<br>";
-    foreach ($dsSinhVien as $SinhVien) {
-        echo "Tên: " . $SinhVien['ten'] . ", Điểm: " . $SinhVien['diem'] . "<br>";
+// function :showList
+function showList() {
+    global $listStudent;
+    echo "List Student:<br>";
+    foreach ($listStudent as $Student) {
+        echo "Name: " . $Student['name'] . ", Point: " . $Student['point'] . "<br>";
     }
 }
 
-// function tinhTB
-function tinhTB() {
-    global $dsSinhVien;
-    $tongDiem = 0;
-    $slSinhVien = count($dsSinhVien);
+// function Average
+function Average() {
+    global $listStudent;
+    $Sum = 0;
+    $slStudent = count($listStudent);
 
-    foreach ($dsSinhVien as $SinhVien) {
-        $tongDiem += $SinhVien['diem'];
+    foreach ($listStudent as $Student) {
+        $Sum += $Student['point'];
     }
 
-    if ($slSinhVien > 0) {
-        $diem_trung_binh = $tongDiem / $slSinhVien;
-        echo "Điểm trung bình của các sinh viên là: $diem_trung_binh<br>";
+    if ($slStudent > 0) {
+        $averageScore = $Sum / $slStudent;
+        echo "The average score of the students is: $averageScore<br>";
     } else {
-        echo "Không có sinh viên nào trong danh sách.<br>";
+        echo "There are no students on the list.<br>";
     }
 }
 
 // function timSVDiemCaoNhat
-function timSVDiemCaoNhat() {
-    global $dsSinhVien;
-    $diemCaoNhat = -1;
-    $tenSVDiemCaoNhat = "";
+function searchHighestScoreStudent() {
+    global $listStudent;
+    $highestScore = -1;
+    $topStudentName = "";
 
-    foreach ($dsSinhVien as $SinhVien) {
-        if ($SinhVien['diem'] > $diemCaoNhat) {
-            $diemCaoNhat = $SinhVien['diem'];
-            $tenSVDiemCaoNhat = $SinhVien['ten'];
+    foreach ($listStudent as $Student) {
+        if ($Student['point'] > $highestScore) {
+            $highestScore = $Student['point'];
+            $topStudentName = $Student['name'];
         }
     }
 
-    echo "Sinh viên có điểm cao nhất là: $tenSVDiemCaoNhat với điểm $diemCaoNhat<br>";
+    echo "The student with the highest score is: $topStudentName with a score of $highestScore<br>";
 }
 
 // function timSVDiemThapNhat
-function timSVDiemThapNhat() {
-    global $dsSinhVien;
-    $diemThapNhat = 100;
-    $tenSVDiemThapNhat = "";
+function SearchLowestScoreStudent() {
+    global $listStudent;
+    $lowestScore = 100;
+    $bottomStudentName= "";
 
-    foreach ($dsSinhVien as $SinhVien) {
-        if ($SinhVien['diem'] < $diemThapNhat) {
-            $diemThapNhat = $SinhVien['diem'];
-            $tenSVDiemThapNhat = $SinhVien['ten'];
+    foreach ($listStudent as $Student) {
+        if ($Student['point'] < $bottomStudentName) {
+            $lowestScore = $Student['point'];
+            $bottomStudentName = $Student['name'];
         }
     }
 
-    echo "Sinh viên có điểm thấp nhất là: $tenSVDiemThapNhat với điểm $diemThapNhat<br>";
+    echo "The student with the lowest score is: $bottomStudentName with a score of $lowestScore<br>";
 }
 
-// Add some students to test
-themSV("Nguyễn Văn A", 9);
-themSV("Nguyễn Văn B", 7.5);
-themSV("Nguyễn Văn C", 6);
-themSV("Nguyễn Văn D", 8.5);
-themSV("Lê Văn A", 9.5);
-themSV("Lê Văn B", 8);
-themSV("Lê Văn C", 6.5);
-themSV("Lê Văn D", 9);
+// Add some students to test("Nguyễn Văn A", 9);
+addStudent("NguyenVanB", 7.5);
+addStudent("NguyenVanC", 6);
+addStudent("NguyenVanD", 8.5);
+addStudent("LeVanA", 9.5);
+addStudent("LeVanB", 8);
+addStudent("LeVanC", 6.5);
+addStudent("LeVanD", 9);
 
 // Display list of students
-hien_thi_danh_sach();
+showList();
 
 // Find the student with the highest score
-timSVDiemCaoNhat();
+searchHighestScoreStudent();
 
 // Find the student with the lowest score
-timSVDiemThapNhat();
+SearchLowestScoreStudent();
 
 // Calculate average score
-tinhTB();
+Average();
 ?>
