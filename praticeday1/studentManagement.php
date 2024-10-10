@@ -1,16 +1,16 @@
 <?php
 namespace Praticeday1;
-// Mảng lưu trữ danh sách sinh viên
+//Array to store student list
 $dsSinhVien = array();
 
-// Hàm thêm sinh viên
+// function : themSV
 function themSV($ten, $diem) {
     global $dsSinhVien;
     $SinhVien = array("ten" => $ten, "diem" => $diem);
     $dsSinhVien[] = $SinhVien;
 }
 
-// Hàm hiển thị danh sách sinh viên
+// function :hien_thi_danh_sach
 function hien_thi_danh_sach() {
     global $dsSinhVien;
     echo "Danh sách sinh viên:<br>";
@@ -19,7 +19,7 @@ function hien_thi_danh_sach() {
     }
 }
 
-// Hàm tính điểm trung bình
+// function tinhTB
 function tinhTB() {
     global $dsSinhVien;
     $tongDiem = 0;
@@ -37,7 +37,7 @@ function tinhTB() {
     }
 }
 
-// Hàm tìm sinh viên có điểm cao nhất
+// function timSVDiemCaoNhat
 function timSVDiemCaoNhat() {
     global $dsSinhVien;
     $diemCaoNhat = -1;
@@ -53,7 +53,7 @@ function timSVDiemCaoNhat() {
     echo "Sinh viên có điểm cao nhất là: $tenSVDiemCaoNhat với điểm $diemCaoNhat<br>";
 }
 
-// Hàm tìm sinh viên có điểm thấp nhất
+// function timSVDiemThapNhat
 function timSVDiemThapNhat() {
     global $dsSinhVien;
     $diemThapNhat = 100;
@@ -69,7 +69,7 @@ function timSVDiemThapNhat() {
     echo "Sinh viên có điểm thấp nhất là: $tenSVDiemThapNhat với điểm $diemThapNhat<br>";
 }
 
-// Thêm một số sinh viên để kiểm tra
+// Add some students to test
 themSV("Nguyễn Văn A", 9);
 themSV("Nguyễn Văn B", 7.5);
 themSV("Nguyễn Văn C", 6);
@@ -79,15 +79,15 @@ themSV("Lê Văn B", 8);
 themSV("Lê Văn C", 6.5);
 themSV("Lê Văn D", 9);
 
-// Hiển thị danh sách sinh viên
+// Display list of students
 hien_thi_danh_sach();
 
-// Tìm sinh viên có điểm cao nhất
+// Find the student with the highest score
 timSVDiemCaoNhat();
 
-// Tìm sinh viên có điểm thấp nhất
+// Find the student with the lowest score
 timSVDiemThapNhat();
 
-// Tính điểm trung bình
+// Calculate average score
 tinhTB();
 ?>
