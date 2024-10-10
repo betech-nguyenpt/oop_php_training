@@ -1,5 +1,5 @@
 <?php
-namespace TrainingOOP1;
+namespace TrainingOOP-PHP000PHP0001;
 //Array to store student list
 $listStudent = array();
 
@@ -37,7 +37,7 @@ function Average() {
     }
 }
 
-// function timSVDiemCaoNhat
+// function searchHighestScoreStudent
 function searchHighestScoreStudent() {
     global $listStudent;
     $highestScore = -1;
@@ -53,7 +53,7 @@ function searchHighestScoreStudent() {
     echo "The student with the highest score is: $topStudentName with a score of $highestScore<br>";
 }
 
-// function timSVDiemThapNhat
+// function SearchLowestScoreStudent
 function SearchLowestScoreStudent() {
     global $listStudent;
     $lowestScore = 100;
@@ -69,7 +69,7 @@ function SearchLowestScoreStudent() {
     echo "The student with the lowest score is: $bottomStudentName with a score of $lowestScore<br>";
 }
 
-// Add some students to test("Nguyễn Văn A", 9);
+// Add some students to test("NguyenVanA", 9);
 addStudent("NguyenVanB", 7.5);
 addStudent("NguyenVanC", 6);
 addStudent("NguyenVanD", 8.5);
