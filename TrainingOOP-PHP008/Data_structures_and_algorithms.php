@@ -13,13 +13,23 @@
             private $name;
             private $age;
 
+            /**
+             * Person constructor.
+             *
+             * @param string $name Person name
+             * @param int $age Person age
+             */
             public function __construct($name, $age) {
                 $this->name = $name;
                 $this->age = $age;
             }
-
+            /**
+             * Display person's information
+             *
+             * @return string Person's information
+             */
             public function displayInfo() {
-                return "Name: $this->name, Age: $this->age";
+                return sprintf("Name: %s, Age: %d", $this->name, $this->age);
             }
         }
 
@@ -49,22 +59,34 @@
         $stack->push(new Person("NVB", 25));
         $stack->push(new Person("NVC", 40));
 
-        echo "Top person: " . $stack->peek()->displayInfo() . "\n"; // output the above person's information: Top person: Name: NVC, Age: 40
-        echo "Popped person: " . $stack->pop()->displayInfo() . "\n"; // output deleted person information: Popped person: Name: NVC, Age: 40
+       printf("Top person: %s\n", $stack->peek()->displayInfo()); // Output: Top person: Name: NVC, Age: 40
+        printf("Popped person: %s\n", $stack->pop()->displayInfo()); // Output: Popped person: Name: NVC, Age: 40
+
 
 // Link list
 
         class Person {
             private $name;
             private $age;
-
+            
+            /**
+             * Person constructor.
+             *
+             * @param string $name Person name
+             * @param int $age Person age
+             */
             public function __construct($name, $age) {
                 $this->name = $name;
                 $this->age = $age;
             }
 
+            /**
+             * Display person's information
+             *
+             * @return string Person's information
+             */
             public function displayInfo() {
-                return "Name: $this->name, Age: $this->age";
+                return sprintf("Name: %s, Age: %d", $this->name, $this->age);
             }
         }
 
@@ -72,6 +94,11 @@
             public $data;
             public $next;
 
+            /**
+             * Node constructor.
+             *
+             * @param Person $data The person data for the node
+             */
             public function __construct($data) {
                 $this->data = $data;
                 $this->next = null;
@@ -80,7 +107,12 @@
 
         class LinkedList {
             private $head = null;
-
+            
+             /**
+             * Append a new person to the linked list
+             *
+             * @param Person $data The person to append
+             */
             public function append($data) {
                 $newNode = new Node($data);
                 if ($this->head === null) {
@@ -93,11 +125,13 @@
                 }
                 $current->next = $newNode;
             }
-
+            /**
+             * Display all persons in the linked list
+             */
             public function display() {
                 $current = $this->head;
                 while ($current !== null) {
-                    echo $current->data->displayInfo() . "\n";
+                    printf("%s\n", $current->data->displayInfo());
                     $current = $current->next;
                 }
             }
@@ -111,14 +145,20 @@
 
         $list->display(); 
         // Result
-        // ame: NguyenVanA, Age: 30
+        // Name: NguyenVanA, Age: 30
         // Name: NguyenVanB, Age: 25
         // Name: NguyenVanC, Age: 40
 
 
-// sorting algorithm
+// Sorting algorithm
 
-        //Quick sorting algorithm
+
+        /**
+         * Quick sort algorithm
+         *
+         * @param array $my_array The array to sort
+         * @return array The sorted array
+         */
         function quick_sort($my_array)  
         {  
             $loe = $gt = array();  
@@ -142,13 +182,19 @@
         }  
 
         $my_array = array(3, 0, 2, 5, -1, 4, 1);  
-        echo 'Before: '.implode(',',$my_array).'<br>';  
+        printf("Before: %s\n", implode(',', $my_array));
         $my_array = quick_sort($my_array);  
-        echo 'After: '.implode(',',$my_array);
-        // :Before: 3,0,2,5,-1,4,1<br> After: -1,0,1,2,3,4,5
+        printf("After: %s\n", implode(',', $my_array));
+        // Before: 3,0,2,5,-1,4,1<br> After: -1,0,1,2,3,4,5
 
 //Selection-sortsort
 
+        /**
+         * Selection sort algorithm.
+         *
+         * @param array $data The array to sort.
+         * @return array The sorted array.
+         */
         function selection_sort($data)  
         {  
         for($i=0; $i < count($data)-1; $i++) {  
@@ -170,10 +216,10 @@
             return $data1;  
         }  
         $my_array = array(3, 0, 2, 5, -1, 4, 1);  
-        echo "Before: <br>";  
-        echo implode(', ',$my_array );  
-        echo "<br>After:<br>";  
-        echo implode(', ',selection_sort($my_array)). PHP_EOL;
+        printf("Before: \n");
+        printf("%s\n", implode(', ', $my_array));
+        printf("After:\n");
+        printf("%s\n", implode(', ', selection_sort($my_array)));
         //Kết quả :Before: <br>3, 0, 2, 5, -1, 4, 1<br>After:<br>-1, 0, 1, 2, 3, 4, 5
 
 ?>

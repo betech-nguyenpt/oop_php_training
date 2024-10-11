@@ -1,157 +1,255 @@
 <?php
 /*
 6. Overloading and virtual methods (Polymorphism in OOP)
-static method
-limitation of static methods
-virtual methods and multiple correspondences
-Abtraction Class (Tính trừu tượng - Abstraction in OOP)
+Static method
+Limitation of static methods
+Virtual methods and multiple correspondences
+Abstraction Class (Tính trừu tượng - Abstraction in OOP)
 Use multiple correspondence and virtual methods
-handle different algorithms
+Handle different algorithms
 */ 
 
-// static method
+// Static method
 
-    class Math {
-        // define
-        public static function Sum($a, $b) {
-            return $a + $b;
+        /**
+         * Class Math providing static methods for mathematical operations.
+         */
+        class Math {
+            /**
+             * Sum two numbers.
+             *
+             * @param int $a First number.
+             * @param int $b Second number.
+             * @return int Sum of the two numbers.
+             */
+            public static function Sum($a, $b) {
+                return $a + $b;
+            }
+
+            /**
+             * Multiply two numbers.
+             *
+             * @param int $a First number.
+             * @param int $b Second number.
+             * @return int Product of the two numbers.
+             */
+            public static function Product($a, $b) {
+                return $a * $b;
+            }
         }
 
-        public static function Product($a, $b) {
-            return $a * $b;
-        }
-    }
+        // Calculate sum and product
+        $sum = Math::Sum(5, 10);
+        $product = Math::Product(5, 10);
 
-    // 
-    $sum = Math::Sum(5, 10);
-    $product = Math::Product(5, 10);
+        printf("SUM: %d\n", $sum);        // Result: SUM: 15
+        printf("PRODUCT: %d\n", $product); // Result: PRODUCT: 50
 
-    echo "SUM: " . $sum . "\n";        // Result: SUM: 15
-    echo "PRODUCT: " . $product . "\n";    // Result: PRODUCT: 50
 
-// and multiple correspondences
+// Virtual methods and multiple correspondences
 
+        /**
+         * Class Person demonstrating virtual methods.
+         */
         class Person {
-            // virtual methods 
+            /**
+             * Job method to be overridden.
+             */
             public function job() {
-                echo "Parttime\n";
+                printf("Parttime\n");
             }
         }
 
+        /**
+         * Class Doctor extending Person.
+         */
         class Doctor extends Person {
-            // overwrite
+            /**
+             * Overriding job method.
+             */
             public function job() {
-                echo "fulltime\n";
+                printf("Fulltime\n");
             }
         }
 
+        /**
+         * Class Engineer extending Person.
+         */
         class Engineer extends Person {
-            // overwrite
+            /**
+             * Overriding job method.
+             */
             public function job() {
-                echo "ABCD\n";
+                printf("ABCD\n");
             }
         }
 
-        // usedused
+        // Test job methods
         $person = new Person();
-        $person->job(); // Output: parttime
+        $person->job(); // Output: Parttime
 
         $doctor = new Doctor();
-        $doctor->job(); // Output: fulltime
+        $doctor->job(); // Output: Fulltime
 
         $engineer = new Engineer();
         $engineer->job(); // Output: ABCD
 
 
-// Abtraction Class ( Abstraction in OOP)
-        // Define abstract class
+// Abstraction Class (Abstraction in OOP)
+
+        /**
+         * Abstract class Employee.
+         */
         abstract class Employee {
             protected $name;
             protected $salary;
 
+            /**
+             * Employee constructor.
+             *
+             * @param string $name Name of the employee.
+             * @param float $salary Salary of the employee.
+             */
             public function __construct($name, $salary) {
                 $this->name = $name;
                 $this->salary = $salary;
             }
 
-            // abstract method
+            /**
+             * Abstract method to calculate bonus.
+             *
+             * @return float Bonus amount.
+             */
             abstract public function calculateBonus();
 
+            /**
+             * Get employee details.
+             *
+             * @return string Employee details.
+             */
             public function getDetails() {
-                return "Name: $this->name, Salary: $this->salary";
+                return sprintf("Name: %s, Salary: %.2f", $this->name, $this->salary);
             }
         }
 
-        // Class: Manager
+        /**
+         * Class Manager extending Employee.
+         */
         class Manager extends Employee {
+            /**
+             * Calculate the bonus for the manager.
+             *
+             * @return float Bonus amount.
+             */
             public function calculateBonus() {
                 return $this->salary * 0.10; // Bonus: 10% salary
             }
         }
 
-        // 
+        // Create a manager object
         $manager = new Manager("NguyenVanA", 50000);
-        echo $manager->getDetails() . "\n"; // Output: Name: NguyenVanA, Salary: 50000
-        echo "Bonus: " . $manager->calculateBonus() . "\n"; // Output: Bonus: 5000
+        printf("%s\n", $manager->getDetails()); // Output: Name: NguyenVanA, Salary: 50000
+        printf("Bonus: %.2f\n", $manager->calculateBonus()); // Output: Bonus: 5000
 
 
 // Use multiple correspondence and virtual methods
 
-        // DefineDefine
+        /**
+         * Abstract class Employee.
+         */
         abstract class Employee {
             protected $name;
             protected $baseSalary;
 
+            /**
+             * Employee constructor.
+             *
+             * @param string $name Name of the employee.
+             * @param float $baseSalary Base salary of the employee.
+             */
             public function __construct($name, $baseSalary) {
                 $this->name = $name;
                 $this->baseSalary = $baseSalary; 
             }
 
-            // Abstract method
+            /**
+             * Abstract method to calculate salary.
+             *
+             * @return float Calculated salary.
+             */
             abstract public function calculateSalary();
 
+            /**
+             * Get employee details.
+             *
+             * @return string Employee details.
+             */
             public function getDetails() {
-                return "Employee: $this->name, Salary: $this->baseSalary VNĐ"; 
+                return sprintf("Employee: %s, Salary: %.2f VNĐ", $this->name, $this->baseSalary); 
             }
         }
 
-        // Class: FullTimeEmployee
+        /**
+         * Class FullTimeEmployee extending Employee.
+         */
         class FullTimeEmployee extends Employee {
+            /**
+             * Calculate the salary for a full-time employee.
+             *
+             * @return float Base salary.
+             */
             public function calculateSalary() {
-                return $this->baseSalary; // hardsalary
+                return $this->baseSalary; // Base salary
             }
         }
 
-        // class: PartTimeEmployee
+        /**
+         * Class PartTimeEmployee extending Employee.
+         */
         class PartTimeEmployee extends Employee {
             private $hoursWorked;
             private $hourlyRate;
 
+            /**
+             * PartTimeEmployee constructor.
+             *
+             * @param string $name Name of the employee.
+             * @param float $baseSalary Base salary (not used for part-time).
+             * @param int $hoursWorked Number of hours worked.
+             * @param float $hourlyRate Hourly rate.
+             */
             public function __construct($name, $baseSalary, $hoursWorked, $hourlyRate) {
                 parent::__construct($name, $baseSalary);
                 $this->hoursWorked = $hoursWorked;
                 $this->hourlyRate = $hourlyRate;
             }
 
+            /**
+             * Calculate the salary for a part-time employee.
+             *
+             * @return float Calculated salary.
+             */
             public function calculateSalary() {
                 return $this->hoursWorked * $this->hourlyRate; // Calculate hourly salary
             }
         }
 
-        // used class
-        $employees = [];
-        $employees[] = new FullTimeEmployee("Nguyen Van A", 50000); // hardsalary
-        $employees[] = new PartTimeEmployee("NVB", 0, 20, 20000); // hourly salary
+        // Create an array of employees
+            $employees = [];
+            $employees[] = new FullTimeEmployee("Nguyen Van A", 50000); // Base salary
+            $employees[] = new PartTimeEmployee("NVB", 0, 20, 20000); // Hourly salary
 
-        // 
-        foreach ($employees as $employee) 
-            echo $employee->getDetails() . "\n"; // Display employee information
-            echo "Calculated Salary: " . $employee->calculateSalary() . " VNĐ\n"; //show salary
-        }
-        //Result :
-        // Employee: Nguyen Van A, Salary: 50000 VNĐ
-        // Calculated Salary: 50000 VNĐ
-        // Employee: Bob, Salary: 0 VNĐ
-        // Calculated Salary: 400000 VNĐ
+            // Display employee information
+            foreach ($employees as $employee) {
+                printf("%s\n", $employee->getDetails()); // Display employee information
+                printf("Calculated Salary: %.2f VNĐ\n", $employee->calculateSalary()); // Show salary
+            }
+            /*
+            Result:
+            Employee: Nguyen Van A, Salary: 50000.00 VNĐ
+            Calculated Salary: 50000.00 VNĐ
+            Employee: NVB, Salary: 0.00 VNĐ
+            Calculated Salary: 400000.00 VNĐ
+            */
 
 ?>

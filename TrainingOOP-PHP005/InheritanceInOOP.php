@@ -12,198 +12,325 @@ Program development and enhancement
 Supplement and upgrade the program
 From general to specific
 Whole and part
-*/ 
-
+*/
 
 // Constructor and destructor concerning inheritance
-    class Person {
-        // Attributes
-        private $name;
 
-        // Constructor
-        public function __construct($name) {
-            $this->name = $name;
-            echo "Person object with name '{$this->name}' has been created.<br>";
+        /**
+         * Class representing a person.
+         */
+        class Person {
+            // Attributes
+            private $name;
+
+            /**
+             * Person constructor.
+             *
+             * @param string $name Name of the person.
+             */
+            public function __construct($name) {
+                $this->name = $name;
+                printf("Person object with name '%s' has been created.<br>", $this->name);
+            }
+
+            /**
+             * Destructor for the person class.
+             */
+            public function __destruct() {
+                printf("Person object with name '%s' has been destroyed.<br>", $this->name);
+            }
+
+            /**
+             * Get the name of the person.
+             *
+             * @return string The name of the person.
+             */
+            public function getName() {
+                return $this->name;
+            }
         }
 
-        // Destructor
-        public function __destruct() {
-            echo "Person object with name '{$this->name}' has been destroyed.<br>";
-        }
-
-        // Method to get the name
-        public function getName() {
-            return $this->name;
-        }
-    }
-
-    // Create an object
-    $person1 = new Person("John Doe");
-    echo "Name: " . $person1->getName() . "<br>";
-    // End of script, the object will be automatically destroyed
-    // Result
-        // Person object with name 'NguyenVanA' has been created.
-        // Name: NguyenVanA
-        // Person object with name 'NguyenVanA' has been destroyed.
+        // Create an object
+        $person1 = new Person("John Doe");
+        printf("Name: %s<br>", $person1->getName());
+        // End of script, the object will be automatically destroyed
+        // Result:
+        // Person object with name 'John Doe' has been created.
+        // Name: John Doe
+        // Person object with name 'John Doe' has been destroyed.
 
 
 // Access scope to the base class components
-    class Example {
-        public $value;
 
-        public function __construct($value) {
-            $this->value = $value;
+        /**
+         * Class Example demonstrating basic functionality.
+         */
+        class Example {
+            public $value;
+
+            /**
+             * Example constructor.
+             *
+             * @param string $value Initial value.
+             */
+            public function __construct($value) {
+                $this->value = $value;
+            }
+
+            /**
+             * Display the value.
+             */
+            public function display() {
+                printf("%s", $this->value);
+            }
         }
 
-        public function display() {
-            echo $this->value;
+        $example = new Example("Hello, world");
+        $example->display(); // Result: Hello, world
+
+        /**
+         * Class Example1 serving as a base class.
+         */
+        class Example1 {
+            public $value;
+
+            /**
+             * Example1 constructor.
+             *
+             * @param string $value Initial value.
+             */
+            public function __construct($value) {
+                $this->value = $value;
+            }
         }
-    }
 
-    $example = new Example("Hello, world");
-    $example->display(); // Result: Hello, world
-
-    class Example1 {
-        public $value;
-
-        public function __construct($value) {
-            $this->value = $value;
+        /**
+         * Class Example2 extending Example1.
+         */
+        class Example2 extends Example1 {
+            /**
+             * Display the value from the Example1 class.
+             */
+            public function display() {
+                printf("%s", $this->value);
+            }
         }
-    }
 
-    class Example2 extends Example1 {
-        public function display() {
-            echo $this->value;
-        }
-    }
-    // Create an object from Example2 class
-    $example = new Example2("Hello, world");
-    $example->display(); // Result: Hello, world
+        // Create an object from Example2 class
+        $example = new Example2("Hello, world");
+        $example->display(); // Result: Hello, world
 
 
 // Multilevel inheritance and name collision
-    class Person {
-        protected $name;
-        protected $age;
 
-        // Constructor
-        public function __construct($name, $age) {
-            $this->name = $name;
-            $this->age = $age;
+        /**
+         * Class Person with additional attributes.
+         */
+        class Person {
+            protected $name;
+            protected $age;
+
+            /**
+             * Person constructor.
+             *
+             * @param string $name Name of the person.
+             * @param int $age Age of the person.
+             */
+            public function __construct($name, $age) {
+                $this->name = $name;
+                $this->age = $age;
+            }
+
+            /**
+             * Get information about the person.
+             *
+             * @return string Information string.
+             */
+            public function getInfo() {
+                return sprintf("Name: %s, Age: %d", $this->name, $this->age);
+            }
         }
 
-        // Method getInfo
-        public function getInfo() {
-            return "Name: " . $this->name . ", Age: " . $this->age;
+        /**
+         * Class Employee extending Person.
+         */
+        class Employee extends Person {
+            private $job;
+
+            /**
+             * Employee constructor.
+             *
+             * @param string $name Name of the person.
+             * @param int $age Age of the person.
+             * @param string $job Job title.
+             */
+            public function __construct($name, $age, $job) {
+                parent::__construct($name, $age);
+                $this->job = $job;
+            }
+
+            /**
+             * Get information about the employee.
+             *
+             * @return string Information string.
+             */
+            public function getInfo() {
+                return sprintf("%s, Job: %s", parent::getInfo(), $this->job);
+            }
         }
-    }
 
-    // Employee class inherits from Person
-    class Employee extends Person {
-        private $job;
+        // Create an object of Employee class
+        $employee = new Employee("NguyenVanA", 25, "Employee");
 
-        // Constructor
-        public function __construct($name, $age, $job) {
-            parent::__construct($name, $age);
-            $this->job = $job;
-        }
-
-        // Method getInfo
-        public function getInfo() {
-            return parent::getInfo() . ", Job: " . $this->job;
-        }
-    }
-
-    // Create an object of Employee class
-    $employee = new Employee("NguyenVanA", 25, "Employee");
-
-    // Call the getInfo method
-    echo $employee->getInfo();
-    // Result: Name: NguyenVanA, Age: 25, Job: Employee
+        // Call the getInfo method
+        printf("%s", $employee->getInfo()); // Result: Name: NguyenVanA, Age: 25, Job: Employee
 
 
 // Virtual base classes
 
-// Abstract base class
-    abstract class Person {
-        abstract public function introduce();
-    }
-
-    // Child class
-    class Student extends Person {
-        public function introduce() {
-            return "Hello, world";
+        /**
+         * Abstract base class for Person.
+         */
+        abstract class Person {
+            abstract public function introduce();
         }
-    }
 
-    // Create an object from the child class
-    $student = new Student();
-    echo $student->introduce(); // Result: Hello, world
+        /**
+         * Class Student extending Person.
+         */
+        class Student extends Person {
+            /**
+             * Introduce the student.
+             *
+             * @return string Introduction string.
+             */
+            public function introduce() {
+                return "Hello, world";
+            }
+        }
+
+        // Create an object from the child class
+        $student = new Student();
+        printf("%s", $student->introduce()); // Result: Hello, world
+
 
 // Some examples of constructors and destructors in multilevel inheritance
 
 // Operator overloading in derived classes
 
-    class Number {
-        protected $number;
+        /**
+         * Class Number representing a numeric value.
+         */
+        class Number {
+            protected $number;
 
-        public function __construct($number) {
-            $this->number = $number;
+            /**
+             * Number constructor.
+             *
+             * @param int $number Initial number.
+             */
+            public function __construct($number) {
+                $this->number = $number;
+            }
+
+            /**
+             * Get the number.
+             *
+             * @return int The number.
+             */
+            public function getNumber() {
+                return $this->number;
+            }
         }
 
-        public function getNumber() {
-            return $this->number;
+        /**
+         * Class DNumber extending Number for derived number operations.
+         */
+        class DNumber extends Number {
+            /**
+             * DNumber constructor.
+             *
+             * @param int $number Initial number.
+             */
+            public function __construct($number) {
+                parent::__construct($number);
+            }
+
+            /**
+             * Add another DNumber to this one.
+             *
+             * @param DNumber $other Another DNumber instance.
+             * @return DNumber Result of the addition.
+             */
+            public function add(DNumber $other) {
+                return new DNumber($this->number + $other->getNumber());
+            }
         }
-    }
 
-    // Derived class
-    class DNumber extends Number {
-        public function __construct($number) {
-            parent::__construct($number);
-        }
+        // Using the derived class
+        $num1 = new DNumber(11);
+        $num2 = new DNumber(12);
+        $result = $num1->add($num2);
 
-        // Addition method
-        public function add(DNumber $other) {
-            return new DNumber($this->number + $other->getNumber());
-        }
-    }
+        printf("%d", $result->getNumber()); // Output: 23
 
-    // Using the derived class
-    $num1 = new DNumber(11);
-    $num2 = new DNumber(12);
-    $result = $num1->add($num2);
-
-    echo $result->getNumber(); // Output: 23
 
 // Copy constructor of the derived class
 
-    class Number {
-        protected $value;
+        /**
+         * Class Number representing a numeric value.
+         */
+        class Number {
+            protected $value;
 
-        public function __construct($value) {
-            $this->value = $value;
-        }
-        public function getValue() {
-            return $this->value;
-        }
-        // Copy method
-        public function copy() {
-            return clone $this;
-        }
-    }
-    // Derived class
-    class DNumber extends Number {
-        public function __construct($value) {
-            parent::__construct($value);
-        }
-    }
+            /**
+             * Number constructor.
+             *
+             * @param int $value Initial value.
+             */
+            public function __construct($value) {
+                $this->value = $value;
+            }
 
-    // Using the derived class
-    $num1 = new DNumber(20);
-    $num2 = $num1->copy(); // Copy the object
+            /**
+             * Get the value.
+             *
+             * @return int The value.
+             */
+            public function getValue() {
+                return $this->value;
+            }
 
-    echo $num1->getValue(); // Output: 20
-    echo $num2->getValue(); // Output: 20
+            /**
+             * Copy method to clone the object.
+             *
+             * @return Number Cloned object.
+             */
+            public function copy() {
+                return clone $this;
+            }
+        }
+
+        /**
+         * Class DNumber extending Number.
+         */
+        class DNumber extends Number {
+            /**
+             * DNumber constructor.
+             *
+             * @param int $value Initial value.
+             */
+            public function __construct($value) {
+                parent::__construct($value);
+            }
+        }
+
+        // Using the derived class
+        $num1 = new DNumber(20);
+        $num2 = $num1->copy(); // Copy the object
+
+        printf("%d", $num1->getValue()); // Output: 20
+        printf("%d", $num2->getValue()); // Output: 20
 
 // Program development and enhancement
 // Supplement and upgrade the program

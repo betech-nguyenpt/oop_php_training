@@ -10,38 +10,62 @@ Retrieval range
 Operator methods
 */ 
 
-//Class definition
+// Class definition
+/**
+ * Class representing a book.
+ */
 
     class Book {
         public $title;
         public $author;
 
+        /**
+         * Book constructor.
+         *
+         * @param string $title The title of the book
+         * @param string $author The author of the book
+         */
         public function __construct($title, $author) {
             $this->title = $title;
             $this->author = $author;
         }
-
+        /**
+         * Get the description of the book
+         *
+         * @return string Description of the book
+         */
         public function getDescription() {
-            return "The book {$this->title} is written by {$this->author}.";
+            printf("The book %s is written by %s.\n", $this->title, $this->author);
         }
     }
 
     // Create object from Book class
     $myBook = new Book("1984", "George Orwell");
-    echo $myBook->getDescription(); // Result: The book 1984 is written by George Orwell.
+    $myBook->getDescription(); // Result: The book 1984 is written by George Orwell.
 
-//Variables, arrays of objects
+// Variables, arrays of objects
     class Student {
         public $name;
         public $level;
 
+        /**
+         * Student constructor
+         *
+         * @param string $name The name of the student
+         * @param string $level The level of the student
+         */
         public function __construct($name, $level) {
             $this->name = $name;
             $this->level = $level;
         }
 
+        /**
+         * Get information about the student
+         *
+         * @return string Information about the student
+         */
         public function getInfo() {
-            return "Student: $this->name, level: $this->level";
+            printf("Student: %s, level: %s\n", $this->name, $this->level);
         }
     }
     // Create array of objects
@@ -52,53 +76,58 @@ Operator methods
     ];
 
     foreach ($students as $student) {
-        echo $student->getInfo() . "\n";
+         $student->getInfo() . "\n";
     }
     /*Result : Student: Nguyen Van A, level: A
                 Student: Nguyen Van B, level: B
                 Student: Nguyen Van C, level: C*/
 
 
-//Object pointer
+// Object pointer
     class Author {
         public $name;
 
+        /**
+         * Author constructor
+         *
+         * @param string $name The name of the author
+         */
         public function __construct($name) {
             $this->name = $name;
         }
 
         public function getName() {
-            return $this->name;
+            printf("%s\n", $this->name);
         }
     }
-    // create object
+    // Create object
     $author1 = new Author("Nguyen Van A");
     // Object pointer
     $authorA = $author1;
     echo $authorA->getName(); // Result: Nguyen Van A
 
 
-//The method's argument, this pointer
+// The method's argument, this pointer
 
-//Tell more about method types and method argument types
+// Tell more about method types and method argument types
 
-//Retrieval range
+// Retrieval range
     class Person {
         public $name = "NguyenVanA";
         protected $age = 20;
         private $sn = "22-12-2022";
 
         public function showInfo() {
-            echo "Name: " . $this->name . "\n";
-            echo "Age: " . $this->age . "\n";
-            echo "SN: " . $this->sn . "\n";
+            printf("Name: %s\n", $this->name);
+            printf("Age: %d\n", $this->age);
+            printf("SN: %s\n", $this->sn);
         }
     }
 
-    $person = new Person();
+    $person = new Person();// Create an instance of Person
     $person->showInfo(); // Result: Name: NguyenVanA, Age: 20, SSN: 22-12-2022
 
-//Operator methods
+// Operator methods
 
 
 ?>

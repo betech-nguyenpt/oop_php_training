@@ -1,85 +1,105 @@
 <?php
 namespace TrainingOOP1;
-// 
-class Student {
-    public $name; // 
-    public $score; //
 
-    // Student class constructor
-    public function  __construct($name, $score) { 
+class Student {
+    public $name;  
+    public $score; 
+
+    /**
+     * Student class constructor
+     *
+     * @param string $name The name of the student
+     * @param float $score The score of the student
+     */
+    public function __construct($name, $score) { 
         $this->name = $name;   
         $this->score = $score; 
     }
 }
 
-// Class studentManagement
-class studentManagement {
-    private $listStudent = array(); // storage array
+/**
+ * Class for managing students.
+ */
+class StudentManagement {
+    private $listStudent = []; // Storage array for students
 
-    // Add new students to the list
+    /**
+     * Add a new student to the list.
+     *
+     * @param string $name The name of the student
+     * @param float $score The score of the student
+     */
     public function addStudent($name, $score) {
-        $student = new Student($name, $score); // 
-        $this->listStudent[] = $student;       // Add objects to the list
+        $student = new Student($name, $score); // Create a new Student object
+        $this->listStudent[] = $student;       // Add the student to the list
     }
 
-    // 
+    /**
+     * Show the list of students.
+     */
     public function showList() {
-        echo "List Student:<br>"; 
+        printf("List of Students:<br>"); 
         foreach ($this->listStudent as $student) {
-            echo "name: " . $student->name . ", score: " . $student->score . "<br>"; // Display information for each student
+            printf("Name: %s, Score: %.2f<br>", $student->name, $student->score); // Display each student's information
         }
     }
 
-    // Calculate the average score of all students
-    public function Average () {
+    /**
+     * Calculate and display the average score of students.
+     */
+    public function Average() {
         $totalScore = 0; // Variable to hold total score
         $numberOfStudents = count($this->listStudent); // Number of students
     
         foreach ($this->listStudent as $student) {
-            $totalScore += $student->score; // Add each student's score to the total score
+            $totalScore += $student->score; // Add each student's score to the total
         }
     
         if ($numberOfStudents > 0) {
             $averageScore = $totalScore / $numberOfStudents; // Calculate average score
-            echo "The average score of the students is: $averageScore<br>";
+            printf("The average score of the students is: %.2f<br>", $averageScore);
         } else {
-            echo "There are no students in the list.<br>";
+            printf("There are no students in the list.<br>");
         }
     }
 
-    // Find the student with the highest score
+    /**
+     * Search for the student with the highest score.
+     */
     public function SearchHighestScoreStudent() {
-        $highestScore = -1; // Initialize the highest score lower than the possible score
-        $topStudentName = ""; // 
+        $highestScore = -1; // Initialize highest score lower than possible scores
+        $topStudentName = ""; // Name of the top student
     
         foreach ($this->listStudent as $student) {
             if ($student->score > $highestScore) {
                 $highestScore = $student->score; // Update highest score
-                $topStudentName = $student->name; // Update the name of the student with the highest score
+                $topStudentName = $student->name; // Update name of the student with highest score
             }
         }
     
-        echo "The student with the highest score is: $topStudentName with a score of $highestScore<br>";
+        printf("The student with the highest score is: %s with a score of %.2f<br>", $topStudentName, $highestScore);
     }
 
-   // Find the student with the lowest score
-public function SearchLowestScoreStudent() {
-    $lowestScore = 100; // Initialize the lowest score higher than the possible score
-    $bottomStudentName = ""; // Initialize the name of the student with the lowest score
+    /**
+     * Search for the student with the lowest score.
+     */
+    public function SearchLowestScoreStudent() {
+        $lowestScore = 100; // Initialize lowest score higher than possible scores
+        $bottomStudentName = ""; // Name of the student with the lowest score
 
-    foreach ($this->listStudent as $student) {
-        if ($student->score < $lowestScore) {
-            $lowestScore = $student->score; // Update lowest score
-            $bottomStudentName = $student->name; // Update the name of the student with the lowest score
+        foreach ($this->listStudent as $student) {
+            if ($student->score < $lowestScore) {
+                $lowestScore = $student->score; // Update lowest score
+                $bottomStudentName = $student->name; // Update name of the student with lowest score
+            }
         }
-    }
 
-    echo "The student with the lowest score is: $bottomStudentName with a score of $lowestScore<br>";
+        printf("The student with the lowest score is: %s with a score of %.2f<br>", $bottomStudentName, $lowestScore);
     }
 }
 
-// 
-$stManagement = new studentManagement();
+// Create an instance of StudentManagement
+$stManagement = new StudentManagement();
 
 // Add some students to test
 $stManagement->addStudent("NguyenVanA", 9);
@@ -97,9 +117,9 @@ $stManagement->showList();
 // Find the student with the highest score
 $stManagement->SearchHighestScoreStudent();
 
-//  Find the student with the lowest score
+// Find the student with the lowest score
 $stManagement->SearchLowestScoreStudent();
 
-//Calculate average score
+// Calculate average score
 $stManagement->Average();
 ?>

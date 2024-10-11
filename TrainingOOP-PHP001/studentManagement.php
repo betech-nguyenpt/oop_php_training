@@ -1,75 +1,90 @@
 <?php
-namespace TrainingOOP-PHP000PHP0001;
-//Array to store student list
+namespace TrainingOOP_PHP000PHP0001;
+
+// Array to store student list
 $listStudent = array();
 
-// function : addStudent
+/**
+ * Add a student to the list.
+ *
+ * @param string $name Student's name.
+ * @param float $point Student's score.
+ */
 function addStudent($name, $point) {
     global $listStudent;
-    $Student = array("name" => $name, "point" => $point);
-    $listStudent[] = $Student;
+    $student = array("name" => $name, "point" => $point);
+    $listStudent[] = $student;
 }
 
-// function :showList
+/**
+ * Show the list of students.
+ */
 function showList() {
     global $listStudent;
-    echo "List Student:<br>";
-    foreach ($listStudent as $Student) {
-        echo "Name: " . $Student['name'] . ", Point: " . $Student['point'] . "<br>";
+    printf("List of Students:<br>");
+    foreach ($listStudent as $student) {
+        printf("Name: %s, Point: %.2f<br>", $student['name'], $student['point']);
     }
 }
 
-// function Average
+/**
+ * Calculate and display the average score of students.
+ */
 function Average() {
     global $listStudent;
-    $Sum = 0;
-    $slStudent = count($listStudent);
+    $sum = 0;
+    $countStudents = count($listStudent);
 
-    foreach ($listStudent as $Student) {
-        $Sum += $Student['point'];
+    foreach ($listStudent as $student) {
+        $sum += $student['point'];
     }
 
-    if ($slStudent > 0) {
-        $averageScore = $Sum / $slStudent;
-        echo "The average score of the students is: $averageScore<br>";
+    if ($countStudents > 0) {
+        $averageScore = $sum / $countStudents;
+        printf("The average score of the students is: %.2f<br>", $averageScore);
     } else {
-        echo "There are no students on the list.<br>";
+        printf("There are no students on the list.<br>");
     }
 }
 
-// function searchHighestScoreStudent
+/**
+ * Find and display the student with the highest score.
+ */
 function searchHighestScoreStudent() {
     global $listStudent;
     $highestScore = -1;
     $topStudentName = "";
 
-    foreach ($listStudent as $Student) {
-        if ($Student['point'] > $highestScore) {
-            $highestScore = $Student['point'];
-            $topStudentName = $Student['name'];
+    foreach ($listStudent as $student) {
+        if ($student['point'] > $highestScore) {
+            $highestScore = $student['point'];
+            $topStudentName = $student['name'];
         }
     }
 
-    echo "The student with the highest score is: $topStudentName with a score of $highestScore<br>";
+    printf("The student with the highest score is: %s with a score of %.2f<br>", $topStudentName, $highestScore);
 }
 
-// function SearchLowestScoreStudent
+/**
+ * Find and display the student with the lowest score.
+ */
 function SearchLowestScoreStudent() {
     global $listStudent;
     $lowestScore = 100;
-    $bottomStudentName= "";
+    $bottomStudentName = "";
 
-    foreach ($listStudent as $Student) {
-        if ($Student['point'] < $bottomStudentName) {
-            $lowestScore = $Student['point'];
-            $bottomStudentName = $Student['name'];
+    foreach ($listStudent as $student) {
+        if ($student['point'] < $lowestScore) {
+            $lowestScore = $student['point'];
+            $bottomStudentName = $student['name'];
         }
     }
 
-    echo "The student with the lowest score is: $bottomStudentName with a score of $lowestScore<br>";
+    printf("The student with the lowest score is: %s with a score of %.2f<br>", $bottomStudentName, $lowestScore);
 }
 
-// Add some students to test("NguyenVanA", 9);
+// Add some students to test
+addStudent("NguyenVanA", 9);
 addStudent("NguyenVanB", 7.5);
 addStudent("NguyenVanC", 6);
 addStudent("NguyenVanD", 8.5);

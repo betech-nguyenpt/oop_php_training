@@ -6,26 +6,40 @@ require_once('Point.php');
 use TrainingOOP1\Point;
 
 class ListPoint {
-    public $points = [];
+    public $points = []; // Array to store Point objects
 
-    // Constructor
+    /**
+     * ListPoint constructor.
+     *
+     * Initializes the list with predefined points.
+     */
     public function __construct() {
-        $arrX = [1, 3, 5, 7, 9];
-        $arrY = [2, 4, 6, 8, 10];
+        $arrX = [1, 3, 5, 7, 9]; // X coordinates
+        $arrY = [2, 4, 6, 8, 10]; // Y coordinates
 
-        // Create a Point object and store it in the $points array
+        // Create Point objects and store them in the $points array
         for ($ii = 0; $ii < count($arrX); $ii++) {
             $this->points[$ii] = new Point($arrX[$ii], $arrY[$ii]);
         }
     }
 
-    // Calculate the distance between two points
+    /**
+     * Calculate the distance between two points.
+     *
+     * @param int $i Index of the first point.
+     * @param int $j Index of the second point.
+     * @return float The distance between the two points.
+     */
     public function distance($i, $j) {
         return sqrt(pow($this->points[$i]->x - $this->points[$j]->x, 2)
             + pow($this->points[$i]->y - $this->points[$j]->y, 2));
     }
 
-
+    /**
+     * Get the maximum distance between any two points in the list.
+     *
+     * @return string Description of the longest distance and the points involved.
+     */
     public function getMaxDistance() {
         $max = $this->distance(0, 1); 
         $iMax = 0;
@@ -43,16 +57,17 @@ class ListPoint {
             }
         }
 
-        return 'Longest line with length: ' . $max . '<br>'
-            . 'Through points: (' . $this->points[$iMax]->x . ', ' . $this->points[$iMax]->y . ')'
-            . ' - (' . $this->points[$jMax]->x . ', ' . $this->points[$jMax]->y . ')';
+        // Return the result with formatted output
+        return sprintf('Longest line with length: %.2f<br>Through points: (%d, %d) - (%d, %d)', 
+            $max, 
+            $this->points[$iMax]->x, 
+            $this->points[$iMax]->y, 
+            $this->points[$jMax]->x, 
+            $this->points[$jMax]->y
+        );
     }
 }
 
-
 $listPoint = new ListPoint();
-echo $listPoint->getMaxDistance();
-
-//Result : Longest line with length: 11.313708498985<br>Through points: (1, 2) - (9, 10)
-
+printf($listPoint->getMaxDistance()); // Output the result
 ?>

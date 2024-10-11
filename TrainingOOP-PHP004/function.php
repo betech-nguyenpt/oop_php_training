@@ -2,29 +2,34 @@
 /*
 Constructor
 The class has no constructor and default constructor
-copy constructor
+Copy constructor
 Destructor
-assignment operator
-constructor and component object
-static components
-object array
-Memory Allocation for Objects*/
+Assignment operator
+Constructor and component object
+Static components
+Object array
+Memory allocation for objects
+*/
 
 // Constructor
-
     class Person {
-        public $name;
-        public $age;
+        public $name; // Name of the person
+        public $age;  // Age of the person
 
-        // Constructor
+        /**
+         * Constructor to initialize the Person object.
+         *
+         * @param string $name Name of the person
+         * @param int $age Age of the person
+         */
         public function __construct($name, $age) {
             $this->name = $name;
             $this->age = $age;
         }
 
-        // Information display method
+        // Method to display information
         public function Info() {
-            echo "Name: " . $this->name . ", Age: " . $this->age;
+            printf("Name: %s, Age: %d\n", $this->name, $this->age);
         }
     }
 
@@ -32,148 +37,140 @@ Memory Allocation for Objects*/
     $person1 = new Person("NguyenVanA", 25);
     $person1->Info();  // Output: Name: NguyenVanA, Age: 25
 
+
 // The class has no constructor and default constructor
+        class Person {
+            public $name; // Name of the person
+            public $age;  // Age of the person
 
-    class Person {
-        public $name;
-        public $age;
-        // Information display method
-        public function Info() {
-            echo "Name: " . $this->name . ", Age: " . $this->age;
-        }
-    }
-    //Create object
-    $person1 = new Person();
-    //assign value to attribute
-    $person1 -> name = "NguyenVanA";
-    $person1 ->age="25";
-    //information display
-    $person1->Info();  // Output: Name: NguyenVanA, Age: 25
-
-
-// copy constructor'
-    class Person {
-        public $name;
-        public $age;
-
-        // Constructor
-        public function __construct($name, $age) {
-            $this->name = $name;
-            $this->age = $age;
+            // Method to display information
+            public function Info() {
+                printf("Name: %s, Age: %d\n", $this->name, $this->age);
+            }
         }
 
-        // copy function
-        public function copy() {
-            return new self($this->name, $this->age); // create a new object with the same value
-        }
-    }
+        // Create an object
+        $person1 = new Person();
+        // Assign value to attributes
+        $person1->name = "NguyenVanA";
+        $person1->age = 25;
+        // Display information
+        $person1->Info();  // Output: Name: NguyenVanA, Age: 25
 
-    //create initial object
-    $person1 = new Person("Alice", 25);
+// Copy constructor
+        class Person {
+            public $name; // Name of the person
+            public $age;  // Age of the person
 
-    // copy object
-    $person2 = $person1->copy();
+            /**
+             * Constructor to initialize the Person object.
+             *
+             * @param string $name Name of the person
+             * @param int $age Age of the person
+             */
+            public function __construct($name, $age) {
+                $this->name = $name;
+                $this->age = $age;
+            }
 
-    // information display
-    echo "Nhân sự ban đầu: " . $person1->name . ", " . $person1->age . "\n";  // Output: Original Person: NguyenVanA, 25
-    echo "Nhân sự copy: " . $person2->name . ", " . $person2->age . "\n";    // Output: Copied Person: NguyenVanA, 25
-
-//Destructor
-class demo  
-{  
-    public function demo()  
-    {  
-        echo "constructor1...";  
-    }  
-}  
-
-class demo1 extends demo  
-{  
-    public function __construct()  
-    {  
-        echo parent::demo();  
-        echo "constructor2...";  
-    }  
-    public function __destruct()  
-    {  
-        echo "destroy.....";  
-    }  
-}  
-$obj= new demo1();  //Result : constructor1...constructor2...destroy.....
-                    // destroy is printed when the $obj object is destroyed
-
-
-// Assignment operator
-    $number = 5;  // Assign the value 5 to the variable $number
-    echo $number; // print the value of variable number
-       // : 5
-
-    $number = 5;  // Assign the value 5 to the variable $number
-    $number += 3; //Assign a new value to $number by adding 3 to the current value of $number
-    echo $number; // print the value of variable number
-          //result : 8
-
-
-
-// static components
-    class Math {
-        public static $pi = 3.14;
-
-        public static function getPi() {
-            return self::$pi;
-        }
-    }
-
-    // Access static properties from outside the class
-    echo Math::$pi; // Output: 3.14
-    echo Math::getPi(); // output: 3.14
-
-
-//object array
-    class Person {
-        public $name;
-
-        public function __construct($name) {
-            $this->name = $name;
+            // Copy method to create a copy of the object
+            public function copy() {
+                return new self($this->name, $this->age); // Create a new object with the same values
+            }
         }
 
-        public function greet() {
-            echo "Hello, my name is " . $this->name . "\n";
+        // Create the initial object
+        $person1 = new Person("Alice", 25);
+
+        // Copy the object
+        $person2 = $person1->copy();
+
+        // Display information
+        printf("Original Person: %s, %d\n", $person1->name, $person1->age);  // Output: Original Person: Alice, 25
+        printf("Copied Person: %s, %d\n", $person2->name, $person2->age);     // Output: Copied Person: Alice, 25
+
+// Destructor
+        class demo {
+            public function __construct() {
+                printf("Constructor...\n"); // Called when object is created
+            }
         }
-    }
 
-    // Create an array to store Person objects
-    $people = [];
+        class demo1 extends demo {
+            public function __construct() {
+                parent::__construct(); // Call parent constructor
+                printf("Constructor 2...\n"); // Additional actions
+            }
 
-    // Add Person objects to the array
-    $people[] = new Person("A");
-    $people[] = new Person("B");
+            public function __destruct() {
+                printf("Destroying...\n"); // Actions when object is destroyed
+            }
+        }
 
-    // Iterate through the array and call the greet() method for each object
-    foreach ($people as $person) {
-        $person->greet();//ResultResult :Hello, my name is A ,Hello, my name is B
-    }
+        $obj = new demo1();  // Result: Constructor...Constructor 2...Destroying...
 
+        // Assignment operator
+        $number = 5;  // Assign value 5 to variable $number
+        printf("%d\n", $number); // Print the value of variable number: 5
 
+        $number += 3; // Assign a new value to $number by adding 3 to the current value of $number
+        printf("%d\n", $number); // Print the value of variable number: 8
+
+// Static components
+        class Math {
+            public static $pi = 3.14; // Static property
+
+            public static function getPi() {
+                return self::$pi; // Return static property
+            }
+        }
+
+        // Access static properties from outside the class
+        printf("%.2f\n", Math::$pi); // Output: 3.14
+        printf("%.2f\n", Math::getPi()); // Output: 3.14
+
+// Object array
+        class Person {
+            public $name; // Name of the person
+
+            public function __construct($name) {
+                $this->name = $name;
+            }
+
+            public function greet() {
+                printf("Hello, my name is %s\n", $this->name);
+            }
+        }
+
+        // Create an array to store Person objects
+        $people = [];
+
+        // Add Person objects to the array
+        $people[] = new Person("A");
+        $people[] = new Person("B");
+
+        // Iterate through the array and call the greet() method for each object
+        foreach ($people as $person) {
+            $person->greet(); // Result: Hello, my name is A; Hello, my name is B
+        }
 
 // Allocate memory for the object
-    class SimpleClass {
-        public $property;
+        class SimpleClass {
+            public $property; // Property of the object
 
-        public function __construct($value) {
-            $this->property = $value;
+            public function __construct($value) {
+                $this->property = $value; // Initialize property
+            }
+
+            public function display() {
+                printf("Property value: %s\n", $this->property);
+            }
         }
 
-        public function display() {
-            echo "Property value: " . $this->property . "\n";
-        }
-    }
+        // Allocate memory for the object
+        $object = new SimpleClass("Hello, World!");
 
-    // Allocate memory for the object
-    $object = new SimpleClass("Hello, World!");
-
-    // Use object
-    $object->display();//Result :Property value: Hello, World!
-
+        // Use the object
+        $object->display(); // Result: Property value: Hello, World!
 
 ?>
