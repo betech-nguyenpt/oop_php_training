@@ -2,7 +2,7 @@
 namespace TrainingOOP_PHP000PHP0001;
 
 // Array to store student list
-$listStudent = array();
+$listStudent = [];
 
 /**
  * Add a student to the list.
@@ -12,7 +12,7 @@ $listStudent = array();
  */
 function addStudent($name, $point) {
     global $listStudent;
-    $student = array("name" => $name, "point" => $point);
+    $student = ["name" => $name, "point" => $point];
     $listStudent[] = $student;
 }
 

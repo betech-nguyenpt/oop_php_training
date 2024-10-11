@@ -1,7 +1,7 @@
 <?php
 namespace TrainingOOPPHP001;
 
-class Point{
+class Point {
     public $x;
     public $y;
 
