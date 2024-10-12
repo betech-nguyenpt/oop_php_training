@@ -2,39 +2,39 @@
 namespace TrainingOOP_PHP000PHP0001;
 
 // Array to store student list
-$listStudent = [];
+$listStudents = [];
 
 /**
- * Add a student to the list.
- * @param string $name Student's name.
- * @param float $point Student's score.
+ * Add a student to the list
+ * @param string $name Student's name
+ * @param float $point Student's score
  */
 function addStudent($name, $point) {
-    global $listStudent;
+    global $listStudents;
     $student = ["name" => $name, "point" => $point];
-    $listStudent[] = $student;
+    $listStudents[] = $student;
 }
 
 /**
- * Show the list of students.
+ * Show the list of students
  */
 function showList() {
-    global $listStudent;
+    global $listStudents;
     printf("List of Students:<br>");
-    foreach ($listStudent as $student) {
+    foreach ($listStudents as $student) {
         printf("Name: %s, Point: %.2f<br>", $student['name'], $student['point']);
     }
 }
 
 /**
- * Calculate and display the average score of students.
+ * Calculate and display the average score of students
  */
 function Average() {
-    global $listStudent;
+    global $listStudents;
     $sum = 0;
-    $countStudents = count($listStudent);
+    $countStudents = count($listStudents);
 
-    foreach ($listStudent as $student) {
+    foreach ($listStudents as $student) {
         $sum += $student['point'];
     }
 
@@ -47,14 +47,14 @@ function Average() {
 }
 
 /**
- * Find and display the student with the highest score.
+ * Find and display the student with the highest score
  */
 function searchHighestScoreStudent() {
-    global $listStudent;
+    global $listStudents;
     $highestScore = -1;
     $topStudentName = "";
 
-    foreach ($listStudent as $student) {
+    foreach ($listStudents as $student) {
         if ($student['point'] > $highestScore) {
             $highestScore = $student['point'];
             $topStudentName = $student['name'];
@@ -65,14 +65,14 @@ function searchHighestScoreStudent() {
 }
 
 /**
- * Find and display the student with the lowest score.
+ * Find and display the student with the lowest score
  */
 function SearchLowestScoreStudent() {
-    global $listStudent;
+    global $listStudents;
     $lowestScore = 100;
     $bottomStudentName = "";
 
-    foreach ($listStudent as $student) {
+    foreach ($listStudents as $student) {
         if ($student['point'] < $lowestScore) {
             $lowestScore = $student['point'];
             $bottomStudentName = $student['name'];

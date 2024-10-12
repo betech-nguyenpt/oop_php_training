@@ -9,8 +9,8 @@ class ListPoint {
     public $points = []; // Array to store Point objects
 
     /**
-     * ListPoint constructor.
-     * Initializes the list with predefined points.
+     * ListPoint constructor
+     * Initializes the list with predefined points
      */
     public function __construct() {
         $arrX = [1, 3, 5, 7, 9]; // X coordinates
@@ -23,10 +23,10 @@ class ListPoint {
     }
 
     /**
-     * Calculate the distance between two points.
-     * @param int $i Index of the first point.
-     * @param int $j Index of the second point.
-     * @return float The distance between the two points.
+     * Calculate the distance between two points
+     * @param int $i Index of the first point
+     * @param int $j Index of the second point
+     * @return float The distance between the two points
      */
     public function distance($i, $j) {
         return sqrt(pow($this->points[$i]->x - $this->points[$j]->x, 2)
@@ -34,8 +34,8 @@ class ListPoint {
     }
 
     /**
-     * Get the maximum distance between any two points in the list.
-     * @return string Description of the longest distance and the points involved.
+     * Get the maximum distance between any two points in the list
+     * @return string Description of the longest distance and the points involved
      */
     public function getMaxDistance() {
         $max = $this->distance(0, 1); 

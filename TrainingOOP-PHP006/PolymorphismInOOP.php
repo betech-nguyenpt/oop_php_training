@@ -12,7 +12,7 @@ Handle different algorithms
 // Static method
 
         /**
-         * Class Math providing static methods for mathematical operations.
+         * Class Math providing static methods for mathematical operations
          */
         class Math {
             /**
@@ -26,10 +26,10 @@ Handle different algorithms
             }
 
             /**
-             * Multiply two numbers.
-             * @param int $a First number.
-             * @param int $b Second number.
-             * @return int Product of the two numbers.
+             * Multiply two numbers
+             * @param int $a First number
+             * @param int $b Second number
+             * @return int Product of the two numbers
              */
             public static function Product($a, $b) {
                 return $a * $b;
@@ -47,11 +47,11 @@ Handle different algorithms
 // Virtual methods and multiple correspondences
 
         /**
-         * Class Person demonstrating virtual methods.
+         * Class Person demonstrating virtual methods
          */
         class Person {
             /**
-             * Job method to be overridden.
+             * Job method to be overridden
              */
             public function job() {
                 printf("Parttime\n");
@@ -59,11 +59,11 @@ Handle different algorithms
         }
 
         /**
-         * Class Doctor extending Person.
+         * Class Doctor extending Person
          */
         class Doctor extends Person {
             /**
-             * Overriding job method.
+             * Overriding job method
              */
             public function job() {
                 printf("Fulltime\n");
@@ -71,11 +71,11 @@ Handle different algorithms
         }
 
         /**
-         * Class Engineer extending Person.
+         * Class Engineer extending Person
          */
         class Engineer extends Person {          
             /**
-             * Overriding job method.
+             * Overriding job method
              */
             public function job() {
                 printf("ABCD\n");
@@ -96,16 +96,16 @@ Handle different algorithms
 // Abstraction Class (Abstraction in OOP)
 
         /**
-         * Abstract class Employee.
+         * Abstract class Employee
          */
         abstract class Employee {
             protected $name;
             protected $salary;
 
             /**
-             * Employee constructor.
-             * @param string $name Name of the employee.
-             * @param float $salary Salary of the employee.
+             * Employee constructor
+             * @param string $name Name of the employee
+             * @param float $salary Salary of the employee
              */
             public function __construct($name, $salary) {
                 $this->name = $name;
@@ -113,14 +113,14 @@ Handle different algorithms
             }
 
             /**
-             * Abstract method to calculate bonus.
-             * @return float Bonus amount.
+             * Abstract method to calculate bonus
+             * @return float Bonus amount
              */
             abstract public function calculateBonus();
 
             /**
-             * Get employee details.
-             * @return string Employee details.
+             * Get employee details
+             * @return string Employee details
              */
             public function getDetails() {
                 return sprintf("Name: %s, Salary: %.2f", $this->name, $this->salary);
@@ -128,12 +128,12 @@ Handle different algorithms
         }
 
         /**
-         * Class Manager extending Employee.
+         * Class Manager extending Employee
          */
         class Manager extends Employee {
             /**
-             * Calculate the bonus for the manager.
-             * @return float Bonus amount.
+             * Calculate the bonus for the manager
+             * @return float Bonus amount
              */
             public function calculateBonus() {
                 return $this->salary * 0.10; // Bonus: 10% salary
@@ -149,7 +149,7 @@ Handle different algorithms
 // Use multiple correspondence and virtual methods
 
         /**
-         * Abstract class Employee.
+         * Abstract class Employee
          */
         abstract class Employee {
             protected $name;
@@ -157,8 +157,8 @@ Handle different algorithms
 
             /**
              * Employee constructor.
-             * @param string $name Name of the employee.
-             * @param float $baseSalary Base salary of the employee.
+             * @param string $name Name of the employee
+             * @param float $baseSalary Base salary of the employee
              */
             public function __construct($name, $baseSalary) {
                 $this->name = $name;
@@ -181,7 +181,7 @@ Handle different algorithms
         }
 
         /**
-         * Class FullTimeEmployee extending Employee.
+         * Class FullTimeEmployee extending Employee
          */
         class FullTimeEmployee extends Employee {
             /**
@@ -194,7 +194,7 @@ Handle different algorithms
         }
 
         /**
-         * Class PartTimeEmployee extending Employee.
+         * Class PartTimeEmployee extending Employee
          */
         class PartTimeEmployee extends Employee {
             private $hoursWorked;

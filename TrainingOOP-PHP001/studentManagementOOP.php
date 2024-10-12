@@ -17,10 +17,10 @@ class Student {
 }
 
 /**
- * Class for managing students.
+ * Class for managing students
  */
 class StudentManagement {
-    private $listStudent = []; // Storage array for students
+    private $listStudents = []; // Storage array for students
 
     /**
      * Add a new student to the list
@@ -29,15 +29,15 @@ class StudentManagement {
      */
     public function addStudent($name, $score) {
         $student = new Student($name, $score); // Create a new Student object
-        $this->listStudent[] = $student;       // Add the student to the list
+        $this->listStudents[] = $student;       // Add the student to the list
     }
 
     /**
-     * Show the list of students.
+     * Show the list of students
      */
     public function showList() {
         printf("List of Students:<br>"); 
-        foreach ($this->listStudent as $student) {
+        foreach ($this->listStudents as $student) {
             printf("Name: %s, Score: %.2f<br>", $student->name, $student->score); // Display each student's information
         }
     }
@@ -47,9 +47,9 @@ class StudentManagement {
      */
     public function Average() {
         $totalScore = 0; // Variable to hold total score
-        $numberOfStudents = count($this->listStudent); // Number of students
+        $numberOfStudents = count($this->listStudents); // Number of students
     
-        foreach ($this->listStudent as $student) {
+        foreach ($this->listStudents as $student) {
             $totalScore += $student->score; // Add each student's score to the total
         }
     
@@ -62,13 +62,13 @@ class StudentManagement {
     }
 
     /**
-     * Search for the student with the highest score.
+     * Search for the student with the highest score
      */
     public function SearchHighestScoreStudent() {
         $highestScore = -1; // Initialize highest score lower than possible scores
         $topStudentName = ""; // Name of the top student
     
-        foreach ($this->listStudent as $student) {
+        foreach ($this->listStudents as $student) {
             if ($student->score > $highestScore) {
                 $highestScore = $student->score; // Update highest score
                 $topStudentName = $student->name; // Update name of the student with highest score
@@ -79,13 +79,13 @@ class StudentManagement {
     }
 
     /**
-     * Search for the student with the lowest score.
+     * Search for the student with the lowest score
      */
     public function SearchLowestScoreStudent() {
         $lowestScore = 100; // Initialize lowest score higher than possible scores
         $bottomStudentName = ""; // Name of the student with the lowest score
 
-        foreach ($this->listStudent as $student) {
+        foreach ($this->listStudents as $student) {
             if ($student->score < $lowestScore) {
                 $lowestScore = $student->score; // Update lowest score
                 $bottomStudentName = $student->name; // Update name of the student with lowest score

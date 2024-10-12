@@ -14,7 +14,7 @@
             private $age;
 
             /**
-             * Person constructor.
+             * Person constructor
              * @param string $name Person name
              * @param int $age Person age
              */
@@ -68,7 +68,7 @@
             private $age;
             
             /**
-             * Person constructor.
+             * Person constructor
              * @param string $name Person name
              * @param int $age Person age
              */
@@ -91,7 +91,7 @@
             public $next;
 
             /**
-             * Node constructor.
+             * Node constructor
              * @param Person $data The person data for the node
              */
             public function __construct($data) {
@@ -131,7 +131,7 @@
             }
         }
 
-        // example
+        // Example
         $list = new LinkedList();
         $list->append(new Person("NguyenVanA", 30));
         $list->append(new Person("NguyenVanB", 25));

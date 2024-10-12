@@ -62,7 +62,7 @@ Memory allocation for objects
             public $age;  // Age of the person
 
             /**
-             * Constructor to initialize the Person object.
+             * Constructor to initialize the Person object
              * @param string $name Name of the person
              * @param int $age Age of the person
              */

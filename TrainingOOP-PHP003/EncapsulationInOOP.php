@@ -101,11 +101,7 @@ Operator methods
     $authorA = $author1;
     echo $authorA->getName(); // Result: Nguyen Van A
 
-
-// The method's argument, this pointer
-
-// Tell more about method types and method argument types
-
+    
 // Retrieval range
     class Person {
         public $name = "NguyenVanA";

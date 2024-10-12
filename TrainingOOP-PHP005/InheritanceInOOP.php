@@ -17,15 +17,15 @@ Whole and part
 // Constructor and destructor concerning inheritance
 
         /**
-         * Class representing a person.
+         * Class representing a person
          */
         class Person {
             // Attributes
             private $name;
 
             /**
-             * Person constructor.
-             * @param string $name Name of the person.
+             * Person constructor
+             * @param string $name Name of the person
              */
             public function __construct($name) {
                 $this->name = $name;
@@ -33,15 +33,15 @@ Whole and part
             }
 
             /**
-             * Destructor for the person class.
+             * Destructor for the person class
              */
             public function __destruct() {
                 printf("Person object with name '%s' has been destroyed.<br>", $this->name);
             }
 
             /**
-             * Get the name of the person.
-             * @return string The name of the person.
+             * Get the name of the person
+             * @return string The name of the person
              */
             public function getName() {
                 return $this->name;
@@ -53,29 +53,29 @@ Whole and part
         printf("Name: %s<br>", $person1->getName());
         // End of script, the object will be automatically destroyed
         // Result:
-        // Person object with name 'John Doe' has been created.
+        // Person object with name 'John Doe' has been created
         // Name: John Doe
-        // Person object with name 'John Doe' has been destroyed.
+        // Person object with name 'John Doe' has been destroyed
 
 
 // Access scope to the base class components
 
         /**
-         * Class Example demonstrating basic functionality.
+         * Class Example demonstrating basic functionality
          */
         class Example {
             public $value;
 
             /**
-             * Example constructor.
-             * @param string $value Initial value.
+             * Example constructor
+             * @param string $value Initial value
              */
             public function __construct($value) {
                 $this->value = $value;
             }
 
             /**
-             * Display the value.
+             * Display the value
              */
             public function display() {
                 printf("%s", $this->value);
@@ -86,14 +86,14 @@ Whole and part
         $example->display(); // Result: Hello, world
 
         /**
-         * Class Example1 serving as a base class.
+         * Class Example1 serving as a base class
          */
         class Example1 {
             public $value;
 
             /**
              * Example1 constructor.
-             * @param string $value Initial value.
+             * @param string $value Initial value
              */
             public function __construct($value) {
                 $this->value = $value;
@@ -101,11 +101,11 @@ Whole and part
         }
 
         /**
-         * Class Example2 extending Example1.
+         * Class Example2 extending Example1
          */
         class Example2 extends Example1 {
             /**
-             * Display the value from the Example1 class.
+             * Display the value from the Example1 class
              */
             public function display() {
                 printf("%s", $this->value);
@@ -120,16 +120,16 @@ Whole and part
 // Multilevel inheritance and name collision
 
         /**
-         * Class Person with additional attributes.
+         * Class Person with additional attributes
          */
         class Person {
             protected $name;
             protected $age;
 
             /**
-             * Person constructor.
-             * @param string $name Name of the person.
-             * @param int $age Age of the person.
+             * Person constructor
+             * @param string $name Name of the person
+             * @param int $age Age of the person
              */
             public function __construct($name, $age) {
                 $this->name = $name;
@@ -137,8 +137,8 @@ Whole and part
             }
 
             /**
-             * Get information about the person.
-             * @return string Information string.
+             * Get information about the person
+             * @return string Information string
              */
             public function getInfo() {
                 return sprintf("Name: %s, Age: %d", $this->name, $this->age);
@@ -146,13 +146,13 @@ Whole and part
         }
 
         /**
-         * Class Employee extending Person.
+         * Class Employee extending Person
          */
         class Employee extends Person {
             private $job;
 
             /**
-             * Employee constructor.
+             * Employee constructor
              *
              * @param string $name Name of the person
              * @param int $age Age of the person
@@ -193,7 +193,7 @@ Whole and part
          */
         class Student extends Person {
             /**
-             * Introduce the student.
+             * Introduce the student
              * @return string Introduction string
              */
             public function introduce() {
@@ -211,7 +211,7 @@ Whole and part
 // Operator overloading in derived classes
 
         /**
-         * Class Number representing a numeric value.
+         * Class Number representing a numeric value
          */
         class Number {
             protected $number;
@@ -234,21 +234,21 @@ Whole and part
         }
 
         /**
-         * Class DNumber extending Number for derived number operations.
+         * Class DNumber extending Number for derived number operations
          */
         class DNumber extends Number {
             /**
-             * DNumber constructor.
-             * @param int $number Initial number.
+             * DNumber constructor
+             * @param int $number Initial number
              */
             public function __construct($number) {
                 parent::__construct($number);
             }
 
             /**
-             * Add another DNumber to this one.
-             * @param DNumber $other Another DNumber instance.
-             * @return DNumber Result of the addition.
+             * Add another DNumber to this one
+             * @param DNumber $other Another DNumber instance
+             * @return DNumber Result of the addition
              */
             public function add(DNumber $other) {
                 return new DNumber($this->number + $other->getNumber());
@@ -266,30 +266,30 @@ Whole and part
 // Copy constructor of the derived class
 
         /**
-         * Class Number representing a numeric value.
+         * Class Number representing a numeric value
          */
         class Number {
             protected $value;
 
             /**
-             * Number constructor.
-             * @param int $value Initial value.
+             * Number constructor
+             * @param int $value Initial value
              */
             public function __construct($value) {
                 $this->value = $value;
             }
 
             /**
-             * Get the value.
-             * @return int The value.
+             * Get the value
+             * @return int The value
              */
             public function getValue() {
                 return $this->value;
             }
 
             /**
-             * Copy method to clone the object.
-             * @return Number Cloned object.
+             * Copy method to clone the object
+             * @return Number Cloned object
              */
             public function copy() {
                 return clone $this;
@@ -297,12 +297,12 @@ Whole and part
         }
 
         /**
-         * Class DNumber extending Number.
+         * Class DNumber extending Number
          */
         class DNumber extends Number {
             /**
-             * DNumber constructor.
-             * @param int $value Initial value.
+             * DNumber constructor
+             * @param int $value Initial value
              */
             public function __construct($value) {
                 parent::__construct($value);
