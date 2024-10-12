@@ -10,7 +10,6 @@ class ListPoint {
 
     /**
      * ListPoint constructor.
-     *
      * Initializes the list with predefined points.
      */
     public function __construct() {
@@ -25,7 +24,6 @@ class ListPoint {
 
     /**
      * Calculate the distance between two points.
-     *
      * @param int $i Index of the first point.
      * @param int $j Index of the second point.
      * @return float The distance between the two points.
@@ -37,7 +35,6 @@ class ListPoint {
 
     /**
      * Get the maximum distance between any two points in the list.
-     *
      * @return string Description of the longest distance and the points involved.
      */
     public function getMaxDistance() {

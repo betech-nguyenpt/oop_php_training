@@ -7,7 +7,6 @@ class Point {
 
     /**
      * Point constructor.
-     *
      * @param float $x X-coordinate.
      * @param float $y Y-coordinate.
      */

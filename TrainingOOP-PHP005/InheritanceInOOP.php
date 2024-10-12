@@ -25,7 +25,6 @@ Whole and part
 
             /**
              * Person constructor.
-             *
              * @param string $name Name of the person.
              */
             public function __construct($name) {
@@ -42,7 +41,6 @@ Whole and part
 
             /**
              * Get the name of the person.
-             *
              * @return string The name of the person.
              */
             public function getName() {
@@ -70,7 +68,6 @@ Whole and part
 
             /**
              * Example constructor.
-             *
              * @param string $value Initial value.
              */
             public function __construct($value) {
@@ -96,7 +93,6 @@ Whole and part
 
             /**
              * Example1 constructor.
-             *
              * @param string $value Initial value.
              */
             public function __construct($value) {
@@ -132,7 +128,6 @@ Whole and part
 
             /**
              * Person constructor.
-             *
              * @param string $name Name of the person.
              * @param int $age Age of the person.
              */
@@ -143,7 +138,6 @@ Whole and part
 
             /**
              * Get information about the person.
-             *
              * @return string Information string.
              */
             public function getInfo() {
@@ -160,9 +154,9 @@ Whole and part
             /**
              * Employee constructor.
              *
-             * @param string $name Name of the person.
-             * @param int $age Age of the person.
-             * @param string $job Job title.
+             * @param string $name Name of the person
+             * @param int $age Age of the person
+             * @param string $job Job title
              */
             public function __construct($name, $age, $job) {
                 parent::__construct($name, $age);
@@ -170,9 +164,8 @@ Whole and part
             }
 
             /**
-             * Get information about the employee.
-             *
-             * @return string Information string.
+             * Get information about the employee
+             * @return string Information string
              */
             public function getInfo() {
                 return sprintf("%s, Job: %s", parent::getInfo(), $this->job);
@@ -189,20 +182,19 @@ Whole and part
 // Virtual base classes
 
         /**
-         * Abstract base class for Person.
+         * Abstract base class for Person
          */
         abstract class Person {
             abstract public function introduce();
         }
 
         /**
-         * Class Student extending Person.
+         * Class Student extending Person
          */
         class Student extends Person {
             /**
              * Introduce the student.
-             *
-             * @return string Introduction string.
+             * @return string Introduction string
              */
             public function introduce() {
                 return "Hello, world";
@@ -225,18 +217,16 @@ Whole and part
             protected $number;
 
             /**
-             * Number constructor.
-             *
-             * @param int $number Initial number.
+             * Number constructor
+             * @param int $number Initial number
              */
             public function __construct($number) {
                 $this->number = $number;
             }
 
             /**
-             * Get the number.
-             *
-             * @return int The number.
+             * Get the number
+             * @return int The number
              */
             public function getNumber() {
                 return $this->number;
@@ -249,7 +239,6 @@ Whole and part
         class DNumber extends Number {
             /**
              * DNumber constructor.
-             *
              * @param int $number Initial number.
              */
             public function __construct($number) {
@@ -258,7 +247,6 @@ Whole and part
 
             /**
              * Add another DNumber to this one.
-             *
              * @param DNumber $other Another DNumber instance.
              * @return DNumber Result of the addition.
              */
@@ -285,7 +273,6 @@ Whole and part
 
             /**
              * Number constructor.
-             *
              * @param int $value Initial value.
              */
             public function __construct($value) {
@@ -294,7 +281,6 @@ Whole and part
 
             /**
              * Get the value.
-             *
              * @return int The value.
              */
             public function getValue() {
@@ -303,7 +289,6 @@ Whole and part
 
             /**
              * Copy method to clone the object.
-             *
              * @return Number Cloned object.
              */
             public function copy() {
@@ -317,7 +302,6 @@ Whole and part
         class DNumber extends Number {
             /**
              * DNumber constructor.
-             *
              * @param int $value Initial value.
              */
             public function __construct($value) {

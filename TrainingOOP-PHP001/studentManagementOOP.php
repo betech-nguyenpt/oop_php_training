@@ -7,7 +7,6 @@ class Student {
 
     /**
      * Student class constructor
-     *
      * @param string $name The name of the student
      * @param float $score The score of the student
      */
@@ -24,8 +23,7 @@ class StudentManagement {
     private $listStudent = []; // Storage array for students
 
     /**
-     * Add a new student to the list.
-     *
+     * Add a new student to the list
      * @param string $name The name of the student
      * @param float $score The score of the student
      */

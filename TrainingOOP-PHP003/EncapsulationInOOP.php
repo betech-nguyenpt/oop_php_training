@@ -20,8 +20,7 @@ Operator methods
         public $author;
 
         /**
-         * Book constructor.
-         *
+         * Book constructor
          * @param string $title The title of the book
          * @param string $author The author of the book
          */
@@ -31,7 +30,6 @@ Operator methods
         }
         /**
          * Get the description of the book
-         *
          * @return string Description of the book
          */
         public function getDescription() {
@@ -41,7 +39,7 @@ Operator methods
 
     // Create object from Book class
     $myBook = new Book("1984", "George Orwell");
-    $myBook->getDescription(); // Result: The book 1984 is written by George Orwell.
+    $myBook->getDescription(); // Result: The book 1984 is written by George Orwell
 
 // Variables, arrays of objects
     class Student {
@@ -50,7 +48,6 @@ Operator methods
 
         /**
          * Student constructor
-         *
          * @param string $name The name of the student
          * @param string $level The level of the student
          */
@@ -61,7 +58,6 @@ Operator methods
 
         /**
          * Get information about the student
-         *
          * @return string Information about the student
          */
         public function getInfo() {
@@ -89,7 +85,6 @@ Operator methods
 
         /**
          * Author constructor
-         *
          * @param string $name The name of the author
          */
         public function __construct($name) {

@@ -6,7 +6,6 @@ $listStudent = [];
 
 /**
  * Add a student to the list.
- *
  * @param string $name Student's name.
  * @param float $point Student's score.
  */

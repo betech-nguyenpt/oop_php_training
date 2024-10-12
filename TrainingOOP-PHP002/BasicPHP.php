@@ -83,7 +83,7 @@ Function - Defines a stack of operators
 
 
 
-    // Function - Argument has a default value
+// Function - Argument has a default value
 
         function GT($name = "Anh") {
             printf("Hello, %s!\n", $name);
@@ -98,31 +98,31 @@ Function - Defines a stack of operators
 
 
 // Function - Overloading functions
-    class Number {
-        public $value;
+        class Number {
+            public $value;
 
-        // Constructor
-        public function __construct($value) {
-            $this->value = $value;
+            // Constructor
+            public function __construct($value) {
+                $this->value = $value;
+            }
+
+            // Define the addition operator
+            public function __add($other) {
+                return new Number($this->value + $other->value);
+            }
+
+            // Convert the object to a string for display
+            public function __toString() {
+                return (string) $this->value;
+            }
         }
 
-        // Define the addition operator
-        public function __add($other) {
-            return new Number($this->value + $other->value);
-        }
+        // Create Number objects
+        $num1 = new Number(10);
+        $num2 = new Number(5);
 
-        // Convert the object to a string for display
-        public function __toString() {
-            return (string) $this->value;
-        }
-    }
-
-    // Create Number objects
-    $num1 = new Number(10);
-    $num2 = new Number(5);
-
-    // Use the addition operator
-    $sum = $num1->__add($num2);
-    printf("Sum: %s\n", $sum); // Result: Sum: 15
+        // Use the addition operator
+        $sum = $num1->__add($num2);
+        printf("Sum: %s\n", $sum); // Result: Sum: 15
 
 ?>

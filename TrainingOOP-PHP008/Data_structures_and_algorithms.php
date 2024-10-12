@@ -15,7 +15,6 @@
 
             /**
              * Person constructor.
-             *
              * @param string $name Person name
              * @param int $age Person age
              */
@@ -25,7 +24,6 @@
             }
             /**
              * Display person's information
-             *
              * @return string Person's information
              */
             public function displayInfo() {
@@ -71,7 +69,6 @@
             
             /**
              * Person constructor.
-             *
              * @param string $name Person name
              * @param int $age Person age
              */
@@ -82,7 +79,6 @@
 
             /**
              * Display person's information
-             *
              * @return string Person's information
              */
             public function displayInfo() {
@@ -96,7 +92,6 @@
 
             /**
              * Node constructor.
-             *
              * @param Person $data The person data for the node
              */
             public function __construct($data) {
@@ -110,7 +105,6 @@
             
              /**
              * Append a new person to the linked list
-             *
              * @param Person $data The person to append
              */
             public function append($data) {
@@ -155,7 +149,6 @@
 
         /**
          * Quick sort algorithm
-         *
          * @param array $my_array The array to sort
          * @return array The sorted array
          */
@@ -190,10 +183,9 @@
 //Selection-sortsort
 
         /**
-         * Selection sort algorithm.
-         *
-         * @param array $data The array to sort.
-         * @return array The sorted array.
+         * Selection sort algorithm
+         * @param array $data The array to sort
+         * @return array The sorted array
          */
         function selection_sort($data)  
         {  

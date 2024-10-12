@@ -7,7 +7,6 @@ $d = 20;
 
 /**
  * Perform complex calculations.
- * 
  * The calculation follows the order of operations:
  * 1. Multiplication and Division
  * 2. Addition and Subtraction

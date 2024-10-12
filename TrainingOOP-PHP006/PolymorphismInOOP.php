@@ -16,11 +16,10 @@ Handle different algorithms
          */
         class Math {
             /**
-             * Sum two numbers.
-             *
-             * @param int $a First number.
-             * @param int $b Second number.
-             * @return int Sum of the two numbers.
+             * Sum two numbers
+             * @param int $a First number
+             * @param int $b Second number
+             * @return int Sum of the two numbers
              */
             public static function Sum($a, $b) {
                 return $a + $b;
@@ -28,7 +27,6 @@ Handle different algorithms
 
             /**
              * Multiply two numbers.
-             *
              * @param int $a First number.
              * @param int $b Second number.
              * @return int Product of the two numbers.
@@ -75,7 +73,7 @@ Handle different algorithms
         /**
          * Class Engineer extending Person.
          */
-        class Engineer extends Person {
+        class Engineer extends Person {          
             /**
              * Overriding job method.
              */
@@ -106,7 +104,6 @@ Handle different algorithms
 
             /**
              * Employee constructor.
-             *
              * @param string $name Name of the employee.
              * @param float $salary Salary of the employee.
              */
@@ -117,14 +114,12 @@ Handle different algorithms
 
             /**
              * Abstract method to calculate bonus.
-             *
              * @return float Bonus amount.
              */
             abstract public function calculateBonus();
 
             /**
              * Get employee details.
-             *
              * @return string Employee details.
              */
             public function getDetails() {
@@ -138,7 +133,6 @@ Handle different algorithms
         class Manager extends Employee {
             /**
              * Calculate the bonus for the manager.
-             *
              * @return float Bonus amount.
              */
             public function calculateBonus() {
@@ -163,7 +157,6 @@ Handle different algorithms
 
             /**
              * Employee constructor.
-             *
              * @param string $name Name of the employee.
              * @param float $baseSalary Base salary of the employee.
              */
@@ -173,16 +166,14 @@ Handle different algorithms
             }
 
             /**
-             * Abstract method to calculate salary.
-             *
-             * @return float Calculated salary.
+             * Abstract method to calculate salary
+             * @return float Calculated salary
              */
             abstract public function calculateSalary();
 
             /**
-             * Get employee details.
-             *
-             * @return string Employee details.
+             * Get employee details
+             * @return string Employee details
              */
             public function getDetails() {
                 return sprintf("Employee: %s, Salary: %.2f VNĐ", $this->name, $this->baseSalary); 
@@ -194,9 +185,8 @@ Handle different algorithms
          */
         class FullTimeEmployee extends Employee {
             /**
-             * Calculate the salary for a full-time employee.
-             *
-             * @return float Base salary.
+             * Calculate the salary for a full-time employee
+             * @return float Base salary
              */
             public function calculateSalary() {
                 return $this->baseSalary; // Base salary
@@ -211,12 +201,11 @@ Handle different algorithms
             private $hourlyRate;
 
             /**
-             * PartTimeEmployee constructor.
-             *
-             * @param string $name Name of the employee.
-             * @param float $baseSalary Base salary (not used for part-time).
-             * @param int $hoursWorked Number of hours worked.
-             * @param float $hourlyRate Hourly rate.
+             * PartTimeEmployee constructor
+             * @param string $name Name of the employee
+             * @param float $baseSalary Base salary (not used for part-time)
+             * @param int $hoursWorked Number of hours worked
+             * @param float $hourlyRate Hourly rate
              */
             public function __construct($name, $baseSalary, $hoursWorked, $hourlyRate) {
                 parent::__construct($name, $baseSalary);
@@ -225,9 +214,8 @@ Handle different algorithms
             }
 
             /**
-             * Calculate the salary for a part-time employee.
-             *
-             * @return float Calculated salary.
+             * Calculate the salary for a part-time employee
+             * @return float Calculated salary
              */
             public function calculateSalary() {
                 return $this->hoursWorked * $this->hourlyRate; // Calculate hourly salary
