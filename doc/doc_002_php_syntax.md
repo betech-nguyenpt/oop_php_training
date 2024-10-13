@@ -79,7 +79,7 @@ Với các ngôn ngữ kiểu tĩnh hay static type thì chúng ta không thể 
    ```
 - Kiểu Mảng (Array): Kiểu mảng (array) trong PHP là một kiểu dữ liệu đặc biệt có thể lưu trữ một hoặc nhiều giá trị bên trong nó bao gồm cả mảng. Mảng bao gồm các phần từ khác nhau bên trong nó. Mỗi phần tử lưu trữ một giá trị và được đánh một khoá duy nhất để phân biệt với các phần tử khác trong cùng mảng.
    ```php
-   $top_car_brands = ["Toyota", "Honda", "BMW", "Ford", "Hyundai"];
+   $top_car_brands = ["Toyota", "Honda", "BMW", "Ford", "Hyundai", "Yamaha"];
    ```
    Ví dụ trên biến `$top_car_brands` có giá trị là một mảng gồm 5 phần tử khác nhau. Mỗi phần tử được đánh số thứ tự từ 0 cho tới 4. Các số thứ tự này cũng chính là khoá của phần tử.
    
