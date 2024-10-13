@@ -52,7 +52,7 @@ Ví dụ: một vài cách sử dụng
 ```php
     $myVariable = 100;
     echo $myVar . "<br>";       // Print 100
-    $myVariable = "Hello";
+    $myVariable = "Hello";       // Hello
     echo $myVar;                // Print Hello
 ```
 Với các ngôn ngữ kiểu tĩnh hay static type thì chúng ta không thể làm được điều này và một biến khi được khai báo với kiểu dữ liệu là chuỗi thì chỉ có thể thay đổi sang một giá trị khác cũng phải là chuỗi.
