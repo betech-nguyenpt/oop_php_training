@@ -27,6 +27,8 @@ and open the template in the editor.
         echo $listPoint->getMaxDistance();
         echo 'TanTy';
         echo '<br/>';
+        echo 'NgocTan';
+        echo '<br/>';
         ?>
     </body>
 </html>
