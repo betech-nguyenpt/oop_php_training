@@ -2,13 +2,13 @@
 <body>
     <html>
         <?php
-        /*Để tạo hằng số, hãy sử dụng define()hàm.(define(name, value);)*/
+        /*To create a constant, use the define() function.*/
         define("Tan", "beautiful");
         echo Tan."<br>";
-        /*Bạn cũng có thể tạo hằng số bằng cách sử dụng const từ khóa.*/
+        /*You can also create a constant by using the const keyword.*/
         const TAN = "Beautiful Boy";
         echo TAN."<br>";
-        /*bạn có thể tạo hằng số mảng bằng define()hàm.*/
+        /*you can create an Array constant using the define() function.*/
         define("NgocTan", [
             "beautiful",
              "Good",
