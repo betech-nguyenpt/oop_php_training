@@ -6,38 +6,39 @@
 $x = " Hello World! ";
 
 
-/*Hàm PHP strlen()trả về độ dài của một chuỗi.*/
+/*The PHP strlen() function returns the length of a string.*/
 echo strlen("Hello world!");
 echo "<br>";
-/*Hàm PHP str_word_count()đếm số từ trong một chuỗi.*/
+/*The PHP str_word_count() function counts the number of words in a string.*/
 echo str_word_count("Hello world!");
 echo "<br>";
-/*Hàm PHP strpos()tìm kiếm một đoạn văn bản cụ thể trong một chuỗi.*/
+/*The PHP strpos() function searches for a specific text within a string.*/
 echo strpos("Hello world!", "world");
 echo"<br>";
-/*Hàm này strtoupper()trả về chuỗi ký tự viết hoa:*/
+/*The strtoupper() function returns the string in upper case:*/
 echo strtoupper($x);
 echo"<br>";
-/*Hàm này strtolower()trả về chuỗi ở dạng chữ thường:*/
+/*The strtolower() function returns the string in lower case:*/
 echo strtolower($x);
 echo"<br>";
-/*Hàm PHP str_replace()thay thế một số ký tự bằng một số ký tự khác trong chuỗi.*/
+/*The PHP str_replace() function replaces some characters with some other characters in a string.*/
 echo str_replace("World", "Tan", $x);
 echo "<br>";
-/*Hàm PHP strrev()đảo ngược một chuỗi.*/
+/*The PHP strrev() function reverses a string.*/
 echo strrev($x);
 echo "<br>";
-/*Khoảng trắng là khoảng trống trước và/hoặc sau văn bản thực tế và bạn thường muốn xóa khoảng trống này.(Xóa trim()bất kỳ khoảng trắng nào ở đầu hoặc cuối:)*/
+/*(Whitespace is the space before and/or after the actual text, and very often you want to remove this space.)*/
 echo "<input value='" . $x . "'>";
 echo "<br>";
 echo "<input value='" . trim($x) . "'>";
 echo"<br>";
-/*Hàm PHP explode()chia một chuỗi thành một mảng.
-Tham số đầu tiên của explode()hàm biểu diễn "dấu phân cách". "Dấu phân cách" chỉ định nơi chia chuỗi.*/
+/*The PHP explode() function splits a string into an array.
+
+The first parameter of the explode() function represents the "separator". The "separator" specifies where to split the string.*/
 $y = explode(" ", $x);
 print_r($y);
 echo "<br>";
-/*Để nối hoặc kết hợp hai chuỗi, bạn có thể sử dụng .toán tử:*/
+/*To concatenate, or combine, two strings you can use the . operator:*/
 $a = "Nguyen";
 $b = "Ngoc";
 $c = "Tan";
@@ -45,17 +46,17 @@ $t = $a . $b . $c ;
 echo $t;
 echo "<br>";
 
-/*Bạn có thể thêm một ký tự khoảng trắng như thế này:*/
+/*You can add a space character like this:*/
 $t = $a . " " . $b . " " .$c;
 echo $t;
 echo "<br>";
 
-/*Bằng cách bao quanh hai biến trong dấu ngoặc kép với khoảng trắng ở giữa, khoảng trắng cũng sẽ xuất hiện trong kết quả:*/
+/*By surrounding the two variables in double quotes with a white space between them, the white space will also be present in the result:*/
 $t = "$a $b $c";
 echo $t;
 echo "<br>";
 
-/*Bạn có thể trả về một phạm vi ký tự bằng cách sử dụng substr()hàm.*/  
+/*You can return a range of characters by using the substr() function.*/  
 echo substr($x, 6, 6);
 echo "<br>";
 echo substr($t, 12, 3);
