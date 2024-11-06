@@ -46,9 +46,7 @@ switch ($favcolor) {
     echo "Your favorite color is neither red, blue, nor green!";
 }
 echo "<br>";
-/**
- * If no cases get a match, the default block is executed:
- */
+//If no cases get a match, the default block is executed:
 $a = 3;
 
 switch ($a) {
@@ -62,9 +60,8 @@ switch ($a) {
     echo "Looking forward to the Weekend";
 }
 echo "<br>";
-/**
- * The default case does not have to be the last case in a switch block, but not recommended.
- */
+//The default case does not have to be the last case in a switch block, but not recommended.
+
 $d = 4;
 
 switch ($d) {
