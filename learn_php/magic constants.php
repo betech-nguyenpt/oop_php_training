@@ -50,7 +50,7 @@
        $obj = new Welcome();
        $obj->msg1();
         echo "<br>";
-      
+        
         ?>
     </body>
 </html>
