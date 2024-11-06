@@ -9,30 +9,33 @@ $z = 'Hello world!';
 $a = 3.14;
 $b = true;
 
-/*Bạn có thể lấy được kiểu dữ liệu của bất kỳ đối tượng nào bằng cách sử dụng var_dump()hàm. */
+//You can get the data type of any object by using the var_dump() function.
 var_dump($x);
 echo "<br>";
 
-/*Một chuỗi có thể là bất kỳ văn bản nào bên trong dấu ngoặc kép. Bạn có thể sử dụng dấu ngoặc đơn hoặc dấu ngoặc kép:*/
+/**
+ * A string can be any text inside quotes.
+ * You can use single or double quotes.
+ */
 var_dump($y);
 echo "<br>"; 
 var_dump($z);   
 
-/*Số thực (floating point number) là số có dấu thập phân hoặc số ở dạng mũ. */
+//A float (floating point number) is a number with a decimal point or a number in exponential form.
 echo "<br>";
 var_dump($a);
 
-/*Boolean biểu diễn hai trạng thái có thể xảy ra: ĐÚNG hoặc SAI.*/
+//A Boolean represents two possible states: TRUE or FALSE.
 echo "<br>";
 var_dump($b);
 
-/*Mảng lưu trữ nhiều giá trị trong một biến duy nhất.*/
-echo"<br>";
+//An array stores multiple values in one single variable.
+echo "<br>";
 $cars = array("Volvo","BMW","Toyota");
 var_dump($cars);
 
-/*Lớp và đối tượng là hai khía cạnh chính của lập trình hướng đối tượng.*/
-echo"<br>";
+//Classes and objects are the two main aspects of object-oriented programming.
+echo "<br>";
 class Car {
     public $color;
     public $model;
@@ -48,28 +51,27 @@ class Car {
   $myCar = new Car("red", "Volvo");
   var_dump($myCar);
 
-  /*Null là một kiểu dữ liệu đặc biệt chỉ có thể có một giá trị: NULL.*/
+  //Null is a special data type which can have only one value: NULL.
   echo "<br>";
   $print = "Hello world";
   $print = null;
   var_dump($print);
  
-  /*Nếu bạn gán giá trị số nguyên cho một biến, kiểu dữ liệu sẽ tự động là số nguyên*/
+  /**
+   * If you assign an integer value to a variable, the type will automatically be an integer.
+   * If you assign a string to the same variable, the type will change to a string.
+   */
   $c = 5;
   var_dump($c);
   echo "<br>";
   $c = "Hello word";
   var_dump($c);
 
-  /*Ép kiểu cho phép bạn thay đổi kiểu dữ liệu trên các biến:*/
+  //Casting allows you to change data type on variables.
   echo "<br>";
   $d = 10;
   $d = (string) $d;
   var_dump($d);
-
-
-  
-
 
 ?>
 

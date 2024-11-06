@@ -10,14 +10,12 @@ $c = 5;
 function myTest() {
   global $x, $y, $c;
   $y = $x + $y + $c;
- 
 } 
-
-myTest();  // run function
-echo "number: $y year"; // output the new value for variable $y
+myTest();
+echo "number: $y year";
 echo "<br>";
-echo "number: " . $y . " year"; // output the new value for variable $y
+echo "number: " . $y . " year";
 ?>
-rhhra
+
 </body>
 </html>
