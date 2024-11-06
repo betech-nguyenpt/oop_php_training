@@ -2,6 +2,7 @@
 <html>
 <body>
 <?php
+
 //Check if the type of a variable is integer.
 $x = 5985;
 var_dump(is_int($x));
@@ -39,6 +40,7 @@ $f = "15.02";
 $int_cast = (int)$f;
 echo $int_cast;
 echo "<br>";
+
 ?>  
 <pre>
 </pre>
