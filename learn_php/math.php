@@ -23,6 +23,7 @@
             echo(rand())."<br>";
             //For example, if you want a random integer between 10 and 100 (inclusive), use rand(10, 100).
             echo(rand(0,100))."<br>";
+            
            ?> 
     </body>
 </html>
