@@ -14,7 +14,7 @@
              "Good",
              "tall"
             ]);
-        echo NgocTan[1]."<br>";
+        echo NgocTan[1]."<br>";    
         ?>
     </html>
 </body>
