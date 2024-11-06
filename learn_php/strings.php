@@ -4,8 +4,6 @@
 
 <?php
 $x = " Hello World! ";
-
-
 //The PHP strlen() function returns the length of a string.
 echo strlen("Hello world!");
 echo "<br>";
@@ -47,12 +45,10 @@ $c = "Tan";
 $t = $a . $b . $c ;
 echo $t;
 echo "<br>";
-
 //You can add a space character like this.
 $t = $a . " " . $b . " " .$c;
 echo $t;
 echo "<br>";
-
 /**
  * By surrounding the two variables in double quotes with a white space between them,
  * The white space will also be present in the result.
@@ -60,7 +56,6 @@ echo "<br>";
 $t = "$a $b $c";
 echo $t;
 echo "<br>";
-
 //You can return a range of characters by using the substr() function.
 echo substr($x, 6, 6);
 echo "<br>";
