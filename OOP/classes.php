@@ -12,15 +12,17 @@
             public $color;
 
             /**
-             * Sets the value of the object's $name property.
+             * Set name
+             * @param string $name The name to set
              */
             function set_name($name) {
                 $this->name = $name;
             }
 
-            /**
-             * Get the value of the $name property from the object.
-             */
+			/**
+			 * Get name
+			 * @return string The name of get the object
+			 */
             function get_name() {
                 return $this->name;
             }
@@ -44,31 +46,34 @@
             public $name;
             public $color;
           
-            /**
-             * Methods
-             * Set the value for the $name property.
-             */ 
+			/**
+			 * Set name
+			 * @param string $name the name to set
+			 */
             function set_name($name) { 
               $this->name = $name;
             }
 
-            /**
-             * Get the value of the $name property.
-             */
+			/**
+			 * Get name
+			 * @return string
+			 */
             function get_name() {
               return $this->name;
             }
 
-            /**
-             * Set the value for the $color property.
-             */
+			/**
+			 * Set color
+			 * @param string $color the color to set
+			 */
             function set_color($color) {
               $this->color = $color;
             }
 
-            /**
-             * Get the value of the $color property.
-             */
+			/**
+			 * Get color
+			 * @return string 
+			 */
             function get_color() {
               return $this->color;
             }
@@ -88,13 +93,15 @@
         class Phone11 {
             public $name;
 
-            /**
-             * Sets the value of the object's $name property.
-             */
+			/**
+			 * Set name
+			 * @param string $name the name to set
+			 */
             function set_name($name) {
               $this->name = $name;
             }
           }
+
           $apple = new Phone11();
           $apple->set_name("Apple");
           
@@ -105,6 +112,7 @@
         class Phone1 {
             public $name;
           }
+
           $apple = new Phone1();
           $apple->name = "Apple";
           
@@ -117,25 +125,25 @@
             public $name;
             public $color;
           
-            /**
-             * Methods
-             * Set the value for the $name property.
-             */ 
+			/**
+			 * Set name
+			 * @param string $name the name to set
+			 */
             function set_name($name) {
               $this->name = $name;
             }
 
-            /**
-             * Get the value of the $name property.
-             */
+			/**
+			 * Get name
+			 * @return string
+			 */
             function get_name() {
               return $this->name;
             }
-          }
+        }
           
           $apple = new Fruit10();
           var_dump($apple instanceof Fruit10);
         ?>
-  
     </body>
 </html>
