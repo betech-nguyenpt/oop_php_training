@@ -6,25 +6,27 @@
          * In the example below
          * $apple and $banana are instances of the class Fruit.
          */
-        class Fruit {
+        class Fruit11 {
             public $name;
             public $color;
+            //Sets the value of the object's $name property.
 
             function set_name($name) {
                 $this->name = $name;
             }
-            function get_name(){
+            //Get the value of the $name property from the object.
+            function get_name() {
                 return $this->name;
             }
         }
-        $apple = new Fruit();
-        $banana = new Fruit();
-        $apple->set_name("Apple");
-        $banana->set_name("Banana");
+        $apple = new Fruit11();
+        $banana = new Fruit11();
+        $apple->set_name("Apple"); //Print out "Apple"
+        $banana->set_name("Banana"); //Print out "Banana"
 
         echo $apple->get_name();
         echo "<br/>";
-        echo $banana->get_name()."<br/>";
+        echo $banana->get_name()."<br/>"; //Print out "Banana"
         /**
          * In the example below, 
          * we add two more methods to class Fruit, 
@@ -35,16 +37,22 @@
             public $name;
             public $color;
           
-            // Methods
-            function set_name($name) {
+            /**
+             * Methods
+             * Set the value for the $name property.
+             */ 
+            function set_name($name) { 
               $this->name = $name;
             }
+            // Get the value of the $name property.
             function get_name() {
               return $this->name;
             }
+            // Set the value for the $color property.
             function set_color($color) {
               $this->color = $color;
             }
+            // Get the value of the $color property.
             function get_color() {
               return $this->color;
             }
@@ -60,13 +68,14 @@
          * So, where can we change the value of the $name property? There are two ways:
          * 1. Inside the class (by adding a set_name() method and use $this):
          */
-        class Phone {
+        class Phone11 {
             public $name;
+            // Sets the value of the object's $name property.
             function set_name($name) {
               $this->name = $name;
             }
           }
-          $apple = new Phone();
+          $apple = new Phone11();
           $apple->set_name("Apple");
           
           echo $apple->name;  
@@ -81,22 +90,26 @@
           echo $apple->name;
           echo "<br>";
         //You can use the instanceof keyword to check if an object belongs to a specific class.
-        class Fruit1 {
+        class Fruit10 {
             // Properties
             public $name;
             public $color;
           
-            // Methods
+            /**
+             * Methods
+             * Set the value for the $name property.
+             */ 
             function set_name($name) {
               $this->name = $name;
             }
+            // Get the value of the $name property.
             function get_name() {
               return $this->name;
             }
           }
           
-          $apple = new Fruit1();
-          var_dump($apple instanceof Fruit);
+          $apple = new Fruit10();
+          var_dump($apple instanceof Fruit10);
         ?>
   
     </body>
