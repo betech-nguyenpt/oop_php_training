@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+/**
+ * Abstract classes and methods are when the parent class has a named method,
+ * But need its child class(es) to fill out the tasks.
+ * An abstract class or method is defined with the "abstract" keyword.
+ */
+// Parent class
+abstract class Car {
+  public $name;
+  /**
+   * Name
+   * @param string $name
+   */
+  public function __construct($name) {
+    $this->name = $name;
+  }
+  /**
+   * Summary of intro
+   * @return string car
+   */
+  abstract public function intro() : string; 
+}
+
+// Child classes
+class Audi extends Car {
+  /**
+   * Summary of intro
+   * @return string the Audi car
+   */
+  public function intro() : string {
+    return "Choose German quality! I'm an $this->name!"; 
+  }
+}
+
+class Volvo extends Car {
+  /**
+   * Summary of intro
+   * @return string the Volvo car
+   */
+  public function intro() : string {
+    return "Proud to be Swedish! I'm a $this->name!"; 
+  }
+}
+
+class Citroen extends Car {
+  /**
+   * Summary of intro
+   * @return string the citroen car
+   */
+  public function intro() : string {
+    return "French extravagance! I'm a $this->name!"; 
+  }
+}
+
+// Create objects from the child classes
+$audi = new audi("Audi");
+echo $audi->intro();
+echo "<br>";
+
+$volvo = new volvo("Volvo");
+echo $volvo->intro();
+echo "<br>";
+
+$citroen = new citroen("Citroen");
+echo $citroen->intro();
+echo "<br>";
+
+// The abstract method has an argument:
+abstract class ParentClass {
+    /**
+     * Summary of prefixName
+     * @param string $name
+     */
+    abstract protected function prefixName($name);
+  }
+  
+  class ChildClass extends ParentClass {
+    /**
+     * Summary of prefixName
+     * @param string $name The name to prefix
+     * @return string The prefixed name
+     */
+    public function prefixName($name) {
+      if ($name == "John Doe") {
+        $prefix = "Mr.";
+      } elseif ($name == "Jane Doe") {
+        $prefix = "Mrs.";
+      } else {
+        $prefix = "";
+      }
+      return "{$prefix} {$name}";
+    }
+  }
+  
+  $class = new ChildClass;
+  echo $class->prefixName("John Doe");
+  echo "<br>"; 
+  echo $class->prefixName("Jane Doe");
+
+  /**
+   * where the abstract method has an argument,
+   * The child class has two optional arguments that are not defined in the parent's abstract method.
+   */
+  abstract class ParentClassed {
+    // Abstract method with an argument
+    
+    /**
+     * Summary of prefixName
+     * @param string $name
+     */
+    abstract protected function prefixName($name);
+  }
+  echo "<br>";
+  
+  class ChildClassed extends ParentClassed {
+    // The child class may define optional arguments that is not in the parent's abstract method
+
+    /**
+     * Summary of prefixName
+     * @param string $name
+     * @param string $separator
+     * @param string $greet
+     * @return string
+     */
+    public function prefixName($name, $separator = ".", $greet = "Dear") {
+      if ($name == "John Doe") {
+        $prefix = "Mr";
+      } elseif ($name == "Jane Doe") {
+        $prefix = "Mrs";
+      } else {
+        $prefix = "";
+      }
+      return "{$greet} {$prefix}{$separator} {$name}";
+    }
+  }
+  
+  $class = new ChildClassed;
+  echo $class->prefixName("John Doe");
+  echo "<br>";  
+  echo $class->prefixName("Jane Doe");
+?>
+ 
+</body>
+</html>
