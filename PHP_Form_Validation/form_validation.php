@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $commit = test_input($_POST["comment"]);
     $gender = test_input($_POST["gender"]);
 }
+
 /**
  * Summary of test_input
  * @param mixed $data
