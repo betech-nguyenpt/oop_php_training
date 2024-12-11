@@ -22,19 +22,22 @@ $parser = xml_parser_create();
 function start($parser, $element_name, $element_attrs) {
     switch($element_name) {
         case "NOTE":
-        echo "--Note --<br>";
-    break;
+            echo "--Note --<br>";
+            break;
         case "TO":
-        echo "To: ";
-    break;
+            echo "To: ";
+            break;
         case "FROM":
-        echo "From: ";
-    break;
+            echo "From: ";
+            break;
         case "HEADING":
-        echo "Heading: ";
-    break;
+            echo "Heading: ";
+            break;
         case "BODY":
-        echo "Message: ";
+            echo "Message: ";
+            break;
+        default:
+            break;
     }
 }
 
