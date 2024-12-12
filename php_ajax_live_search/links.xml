@@ -1,0 +1,10 @@
+<links>
+    <link>
+        <title>Example Link 1</title>
+        <url>http://example1.com</url>
+    </link>
+    <link>
+        <title>Example Link 2</title>
+        <url>http://example2.com</url>
+    </link>
+</links>
